@@ -1,0 +1,39 @@
+.mySwiper {
+  position: relative;
+  padding-bottom: 60px;
+  cursor: grab;
+}
+
+.blog-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  text-align: center;
+  position: absolute;
+}
+
+.blog-pagination .swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border-radius: 9999px;
+  margin: 0 4px;
+  transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+.blog-pagination .swiper-pagination-bullet-active {
+  background-color: var(--peach-color);
+  width: 50px;
+  height: 15px;
+}
+
+.blog-pagination .swiper-pagination-bullet:hover {
+  background-color: var(--peach-color);
+  width: 50px;
+  height: 15px;
+}
+.visible {
+  opacity: 1 !important; /* Make sure the element is visible */
+  transition: opacity 0.5s ease-in-out; /* Transition effect */
+}

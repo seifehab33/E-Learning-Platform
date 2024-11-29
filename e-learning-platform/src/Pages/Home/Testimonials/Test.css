@@ -1,0 +1,17 @@
+.custom-swiper .swiper-button-next,
+.custom-swiper .swiper-button-prev {
+  color: var(--text-color); /* Custom color */
+  padding: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-swiper .swiper-button-next:hover,
+.custom-swiper .swiper-button-prev:hover {
+  background-color: var(--peach-color);
+  transform: scale(1.1);
+}
+
+.custom-swiper .swiper-button-next::after,
+.custom-swiper .swiper-button-prev::after {
+  font-size: 20px;
+}

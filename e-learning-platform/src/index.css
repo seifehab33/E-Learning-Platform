@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --main-color: #131022;
+  --primary-color: #2b2838;
+  --secondary-color: #7e7c85;
+  --nav-color: #2b2838;
+  --peach-color: #f66962;
+  --orange-color: #dd5e58;
+  --yellow-color: #feb830;
+  --purple-color: #b2a5f2;
+  --white-color: #ffffff;
+  --text-color: #b9b7c0;
+}
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--main-color);
+}
+.container-main {
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 980px) {
+  .container-main {
+    align-items: flex-start;
+  }
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Custom animation class */
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+a.active {
+  color: var(--peach-color);
+}

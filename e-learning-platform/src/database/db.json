@@ -1,0 +1,1011 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "category": "React Development",
+      "no_inst": "40 instructors",
+      "img": "/assets/react-category.png"
+    },
+    {
+      "id": "2",
+      "category": "Angular Development",
+      "no_inst": "45 instructors",
+      "img": "/assets/angular-icon.png"
+    },
+    {
+      "id": "3",
+      "category": "Swift Development",
+      "no_inst": "43 instructors",
+      "img": "/assets/swift-category.png"
+    },
+    {
+      "id": "4",
+      "category": "Python (Django)",
+      "no_inst": "39 instructors",
+      "img": "/assets/python category.png"
+    },
+    {
+      "id": "5",
+      "category": "Docker Development",
+      "no_inst": "40 instructors",
+      "img": "/assets/docker-category.png"
+    },
+    {
+      "id": "7",
+      "category": "Machine Learning",
+      "no_inst": "42 instructors",
+      "img": "/assets/machine-category.png"
+    },
+    {
+      "id": "8",
+      "category": "UI/UX Design",
+      "no_inst": "45 instructors",
+      "img": "/assets/ui-ux-category.png"
+    }
+  ],
+  "FeaturedCourses": [
+    {
+      "id": "1",
+      "img_inst": "/assets/inst1.jpg",
+      "img_course": "/assets/ui-course.jpg",
+      "name_inst": "Nicole Brown",
+      "job": "Instructor",
+      "course": "UI/UX Design Essentials",
+      "lesson": "12+ lessons",
+      "hours": "9hr 30min",
+      "rate": "4.0 (15)",
+      "price": "$300",
+      "discount": "$99.00"
+    },
+    {
+      "id": "2",
+      "img_inst": "/assets/inst2.jpg",
+      "img_course": "/assets/wordpress-course.jpg",
+      "name_inst": "Jenis R.",
+      "job": "Instructor",
+      "course": "Master Wordpress for Beginners",
+      "lesson": "11+ lessons",
+      "hours": "6hr 45min",
+      "rate": "4.3 (14)",
+      "price": "$300",
+      "discount": "$99.00"
+    },
+    {
+      "id": "3",
+      "img_inst": "/assets/inst3.jpg",
+      "img_course": "/assets/sketch-course.jpg",
+      "name_inst": "Jesse Stevens",
+      "job": "Instructor",
+      "course": "Sketch App Design Course (2024)",
+      "lesson": "16+ lessons",
+      "hours": "7hr 30min",
+      "rate": "4.4 (20)",
+      "price": "Free"
+    },
+    {
+      "id": "4",
+      "img_inst": "/assets/inst4.jpg",
+      "img_course": "/assets/intro-network-course.jpg",
+      "name_inst": "Mohamed Taha",
+      "job": "Instructor",
+      "course": "Introduction to Computer Networks",
+      "lesson": "13+ lessons",
+      "hours": "13hr 30min",
+      "rate": "4.6 (200)",
+      "price": "$250",
+      "discount": "$99.00"
+    },
+    {
+      "id": "5",
+      "img_inst": "/assets/inst5.jpeg",
+      "img_course": "/assets/ds-algorithm-course.jpg",
+      "name_inst": "Alman Josh",
+      "job": "Instructor",
+      "course": "Data Structures & Algorithms Guide",
+      "lesson": "15+ lessons",
+      "hours": "15hr 30min",
+      "rate": "5.0 (250)",
+      "price": "$400",
+      "discount": "$99.00"
+    },
+    {
+      "id": "6",
+      "img_inst": "/assets/inst6.jpg",
+      "img_course": "/assets/react-course.jpg",
+      "name_inst": "John Smith",
+      "job": "Instructor",
+      "course": "React Fundamentals - Beginner to Pro",
+      "lesson": "10+ lessons",
+      "hours": "12hr 30min",
+      "rate": "4.3 (50)",
+      "price": "$390",
+      "discount": "$99.00"
+    }
+  ],
+  "new_courses": [
+    {
+      "id": "1",
+      "img_inst": "/assets/new-inst.jpg",
+      "img_course": "/assets/testing-quality-new.jpg",
+      "name_inst": "Laura White",
+      "job": "Quality Assurance Specialist",
+      "course": "Master Testing & Quality Assurance",
+      "lesson": "12+ lessons",
+      "hours": "15hr 30min",
+      "rate": "4.7 (110)",
+      "price": "$300",
+      "discount": "$90.00"
+    },
+    {
+      "id": "2",
+      "img_inst": "/assets/new-inst2.jpg",
+      "img_course": "/assets/sw-fundamentals-new.png",
+      "name_inst": "James Turner",
+      "job": "Software Engineer",
+      "course": "Become a Software Engineering Pro",
+      "lesson": "20+ lessons",
+      "hours": "25hr 45min",
+      "rate": "4.8 (150)",
+      "price": "$350",
+      "discount": "$100.00"
+    },
+    {
+      "id": "3",
+      "img_inst": "/assets/new-inst3.jpeg",
+      "img_course": "/assets/cloud-computing-new-course.jpeg",
+      "name_inst": "Sarah Green",
+      "job": "Cloud Solutions Architect",
+      "course": "Cloud Computing Mastery - All Levels",
+      "lesson": "18+ lessons",
+      "hours": "22hr 00min",
+      "rate": "4.9 (200)",
+      "price": "$400",
+      "discount": "$120.00"
+    },
+    {
+      "id": "4",
+      "img_inst": "/assets/new-inst5.jpg",
+      "img_course": "/assets/agile-new.png",
+      "name_inst": "William Brown",
+      "job": "Agile Coach",
+      "course": "Master Agile Methodologies with Ease",
+      "lesson": "15+ lessons",
+      "hours": "12hr 45min",
+      "rate": "4.6 (130)",
+      "price": "$280",
+      "discount": "$80.00"
+    },
+    {
+      "id": "5",
+      "img_inst": "/assets/new-inst4.jpeg",
+      "img_course": "/assets/sw-arch-new.jpg",
+      "name_inst": "Angela Clark",
+      "job": "Software Architect",
+      "course": "Design Principles for Software Architecture",
+      "lesson": "22+ lessons",
+      "hours": "27hr 10min",
+      "rate": "4.8 (170)",
+      "price": "$450",
+      "discount": "$150.00"
+    },
+    {
+      "id": "6",
+      "img_inst": "/assets/new-inst6.jpg",
+      "img_course": "/assets/devops-new.jpg",
+      "name_inst": "David Wilson",
+      "job": "DevOps Engineer",
+      "course": "DevOps Masterclass - CI/CD & Automation",
+      "lesson": "25+ lessons",
+      "hours": "30hr 30min",
+      "rate": "4.7 (140)",
+      "price": "$500",
+      "discount": "$180.00"
+    }
+  ],
+  "Featured_Inst": [
+    {
+      "id": "1",
+      "name_inst": "David Jonhson",
+      "img_inst": "/assets/inst1.jpg",
+      "job": "Web Developer",
+      "students": "40 Students"
+    },
+    {
+      "id": "2",
+      "name_inst": "Daziy Millar",
+      "img_inst": "/assets/new-inst.jpg",
+      "job": "UI/UX Designer",
+      "students": "42 Students"
+    },
+    {
+      "id": "3",
+      "name_inst": "Michael Madisson",
+      "img_inst": "/assets/new-inst2.jpg",
+      "job": "Node.js Developer",
+      "students": "62 Students"
+    },
+    {
+      "id": "4",
+      "name_inst": "Solanke David",
+      "img_inst": "/assets/inst6.jpg",
+      "job": "Web Developer",
+      "students": "65 Students"
+    },
+    {
+      "id": "5",
+      "name_inst": "Alex Morgan",
+      "img_inst": "/assets/new-inst4.jpeg",
+      "job": "Software Architect",
+      "students": "70 Students"
+    },
+    {
+      "id": "6",
+      "name_inst": "Daniel Forth",
+      "img_inst": "/assets/finst-4.jpg",
+      "job": "Network security Developer",
+      "students": "30 Students"
+    },
+    {
+      "id": "7",
+      "name_inst": "Sara Hassan",
+      "img_inst": "/assets/inst3.jpg",
+      "job": "Machine Learning Developer",
+      "students": "50 Students"
+    }
+  ],
+  "Blogs": [
+    {
+      "id": "1",
+      "img": "/assets/blog-01.jpg",
+      "name": "Attract More Attention Sales And Profits",
+      "type": "Marketing",
+      "date": "Jun 15, 2024"
+    },
+    {
+      "id": "2",
+      "img": "/assets/blog-02.jpg",
+      "name": "11 Tips to Help You Get New Clients",
+      "type": "Sales Order",
+      "date": "May 20, 2024"
+    },
+    {
+      "id": "3",
+      "img": "/assets/blog-03.jpg",
+      "name": "An Overworked Newspaper Editor",
+      "type": "Design",
+      "date": "Nov 22, 2024"
+    },
+    {
+      "id": "4",
+      "img": "/assets/blog-04.jpg",
+      "name": "A Solution Built for Teachers",
+      "type": "Seo",
+      "date": "Jul 15, 2024"
+    }
+  ],
+  "Avaliable_Inst": [
+    {
+      "id": "1",
+      "img_inst": "/assets/inst1.jpg",
+      "name_inst": "Nicole Brown",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "UI/UX Design",
+        "Figma Essentials",
+        "Graphic Design"
+      ],
+      "lesson": "12+ lessons",
+      "hours": "9hr 30min",
+      "rate": "4.0 (15)"
+    },
+    {
+      "id": "2",
+      "img_inst": "/assets/inst2.jpg",
+      "name_inst": "Jenis R.",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Master Wordpress",
+        "Web Development",
+        "JavaScript Fundamentals"
+      ],
+      "lesson": "11+ lessons",
+      "hours": "6hr 45min",
+      "rate": "4.3 (14)"
+    },
+    {
+      "id": "3",
+      "img_inst": "/assets/inst3.jpg",
+      "name_inst": "Jesse Stevens",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Sketch App Design Course",
+        "Mobile App Design",
+        "Wireframing Basics"
+      ],
+      "lesson": "16+ lessons",
+      "hours": "7hr 30min",
+      "rate": "4.4 (20)"
+    },
+    {
+      "id": "4",
+      "img_inst": "/assets/inst4.jpg",
+      "name_inst": "Mohamed Taha",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Introduction to Computer Networks",
+        "Network Security Fundamentals",
+        "Advanced Networking"
+      ],
+      "lesson": "13+ lessons",
+      "hours": "13hr 30min",
+      "rate": "4.6 (200)"
+    },
+    {
+      "id": "5",
+      "img_inst": "/assets/inst5.jpeg",
+      "name_inst": "Alman Josh",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Data Structures & Algorithms",
+        "C++ for Beginners",
+        "Introduction to Python"
+      ],
+      "lesson": "15+ lessons",
+      "hours": "15hr 30min",
+      "rate": "5.0 (250)"
+    },
+    {
+      "id": "6",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "John Smith",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "React Fundamentals",
+        "Advanced React",
+        "Next.js Mastery"
+      ],
+      "lesson": "10+ lessons",
+      "hours": "12hr 30min",
+      "rate": "4.3 (50)"
+    },
+    {
+      "id": "7",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "Sarah Lee",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Fullstack Web Development",
+        "JavaScript ES6",
+        "CSS Flexbox Mastery"
+      ],
+      "lesson": "14+ lessons",
+      "hours": "8hr 15min",
+      "rate": "4.7 (35)"
+    },
+    {
+      "id": "8",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "David Parker",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Python for Data Science",
+        "Machine Learning Basics",
+        "TensorFlow"
+      ],
+      "lesson": "20+ lessons",
+      "hours": "18hr 45min",
+      "rate": "4.9 (120)"
+    },
+    {
+      "id": "9",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "Emily Davis",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Digital Marketing",
+        "SEO Fundamentals",
+        "Google Ads Mastery"
+      ],
+      "lesson": "11+ lessons",
+      "hours": "7hr 30min",
+      "rate": "4.5 (60)"
+    },
+    {
+      "id": "10",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "Michael Roberts",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Game Development with Unity",
+        "C# for Beginners",
+        "3D Modeling"
+      ],
+      "lesson": "18+ lessons",
+      "hours": "20hr 00min",
+      "rate": "4.8 (140)"
+    },
+    {
+      "id": "11",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "Jennifer Wong",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Advanced Photoshop Techniques",
+        "Graphic Design Fundamentals",
+        "Illustrator Masterclass"
+      ],
+      "lesson": "15+ lessons",
+      "hours": "10hr 30min",
+      "rate": "4.6 (85)"
+    },
+    {
+      "id": "12",
+      "img_inst": "/assets/inst5.jpeg",
+      "name_inst": "Adam Miller",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Blockchain Development",
+        "Solidity Programming",
+        "Ethereum Basics"
+      ],
+      "lesson": "13+ lessons",
+      "hours": "14hr 00min",
+      "rate": "4.4 (45)"
+    },
+    {
+      "id": "13",
+      "img_inst": "/assets/inst4.jpg",
+      "name_inst": "Isabella Brown",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Cybersecurity Fundamentals",
+        "Ethical Hacking",
+        "Penetration Testing"
+      ],
+      "lesson": "10+ lessons",
+      "hours": "12hr 45min",
+      "rate": "4.9 (110)"
+    },
+    {
+      "id": "14",
+      "img_inst": "/assets/inst3.jpg",
+      "name_inst": "Chris Evans",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Mobile App Development",
+        "Flutter & Dart",
+        "iOS Development"
+      ],
+      "lesson": "17+ lessons",
+      "hours": "18hr 30min",
+      "rate": "4.7 (95)"
+    },
+    {
+      "id": "15",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "Sophia Green",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Data Science with Python",
+        "Pandas & NumPy",
+        "Data Visualization"
+      ],
+      "lesson": "14+ lessons",
+      "hours": "11hr 50min",
+      "rate": "4.6 (100)"
+    },
+    {
+      "id": "16",
+      "img_inst": "/assets/inst5.jpeg",
+      "name_inst": "Daniel Foster",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Kubernetes Mastery",
+        "Docker Essentials",
+        "DevOps for Beginners"
+      ],
+      "lesson": "10+ lessons",
+      "hours": "13hr 15min",
+      "rate": "4.7 (70)"
+    },
+    {
+      "id": "17",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "Olivia Carter",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Photography Basics",
+        "Adobe Lightroom",
+        "Creative Photography"
+      ],
+      "lesson": "12+ lessons",
+      "hours": "9hr 10min",
+      "rate": "4.5 (65)"
+    },
+    {
+      "id": "18",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "Ryan Collins",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "React Native",
+        "Cross-Platform Development",
+        "JavaScript"
+      ],
+      "lesson": "13+ lessons",
+      "hours": "10hr 45min",
+      "rate": "4.6 (80)"
+    },
+    {
+      "id": "19",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "Sophia Turner",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "Angular Fundamentals",
+        "TypeScript Basics",
+        "Web Development"
+      ],
+      "lesson": "15+ lessons",
+      "hours": "16hr 20min",
+      "rate": "4.8 (90)"
+    },
+    {
+      "id": "20",
+      "img_inst": "/assets/inst6.jpg",
+      "name_inst": "Ethan Brooks",
+      "job": "Instructor",
+      "students": "50 Students",
+      "courses": [
+        "AWS Cloud Practitioner",
+        "Cloud Computing",
+        "Infrastructure as Code"
+      ],
+      "lesson": "10+ lessons",
+      "hours": "9hr 30min",
+      "rate": "4.9 (130)"
+    }
+  ],
+  "Courses": [
+    {
+      "id": "1",
+      "course": "UI/UX Design",
+      "img_course": "/assets/ui-course.jpg",
+      "name_inst": "Nicole Brown",
+      "lesson": "12+ lessons",
+      "hours": "9hr 30min",
+      "rate": "4.0",
+      "price": "$120",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "2",
+      "img_course": "/assets/wordpress-course.jpg",
+      "course": "Master Wordpress",
+      "name_inst": "Jenis R.",
+      "lesson": "11+ lessons",
+      "hours": "6hr 45min",
+      "rate": "4.3",
+      "price": "$110",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "3",
+      "img_course": "/assets/sketch-course.jpg",
+      "course": "Sketch App Design Course",
+      "name_inst": "Jesse Stevens",
+      "lesson": "16+ lessons",
+      "hours": "7hr 30min",
+      "rate": "4.4",
+      "price": "$130",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "4",
+      "img_course": "/assets/intro-network-course.jpg",
+      "course": "Introduction to Computer Networks",
+      "name_inst": "Mohamed Taha",
+      "lesson": "13+ lessons",
+      "hours": "13hr 30min",
+      "rate": "4.6",
+      "price": "$140",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "5",
+      "img_course": "/assets/ds-algorithm-course.jpg",
+      "course": "Data Structures & Algorithms",
+      "name_inst": "Alman Josh",
+      "lesson": "15+ lessons",
+      "hours": "15hr 30min",
+      "rate": "5.0",
+      "price": "$150",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "6",
+      "img_course": "/assets/react-course.jpg",
+      "course": "React Fundamentals",
+      "name_inst": "John Smith",
+      "lesson": "10+ lessons",
+      "hours": "12hr 30min",
+      "rate": "4.3",
+      "price": "$115",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "7",
+      "img_course": "/assets/fullStack.jpg",
+      "course": "Fullstack Web Development",
+      "name_inst": "Sarah Lee",
+      "lesson": "14+ lessons",
+      "hours": "8hr 15min",
+      "rate": "4.7",
+      "price": "$125",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "8",
+      "img_course": "/assets/datascience-python.png",
+      "course": "Python for Data Science",
+      "name_inst": "David Parker",
+      "lesson": "20+ lessons",
+      "hours": "18hr 45min",
+      "rate": "4.9",
+      "price": "$160",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "9",
+      "img_course": "/assets/digital-marketing.png",
+      "course": "Digital Marketing",
+      "name_inst": "Emily Davis",
+      "lesson": "11+ lessons",
+      "hours": "7hr 30min",
+      "rate": "4.5",
+      "price": "$100",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "10",
+      "img_course": "/assets/game-deve.jpg",
+      "course": "Game Development with Unity",
+      "name_inst": "Michael Roberts",
+      "lesson": "18+ lessons",
+      "hours": "20hr 00min",
+      "rate": "4.8",
+      "price": "$155",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "11",
+      "img_course": "/assets/photoshop-advance.jpg",
+      "course": "Advanced Photoshop Techniques",
+      "name_inst": "Jennifer Wong",
+      "lesson": "15+ lessons",
+      "hours": "10hr 30min",
+      "rate": "4.6",
+      "price": "$135",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "12",
+      "img_course": "/assets/block-chain.jpg",
+      "course": "Blockchain Development",
+      "name_inst": "Adam Miller",
+      "lesson": "13+ lessons",
+      "hours": "14hr 00min",
+      "rate": "4.4",
+      "price": "$145",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "13",
+      "img_course": "/assets/cyber-security.jpeg",
+      "course": "Cybersecurity Fundamentals",
+      "name_inst": "Isabella Brown",
+      "lesson": "10+ lessons",
+      "hours": "12hr 45min",
+      "rate": "4.9",
+      "price": "$140",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "14",
+      "img_course": "/assets/mobile-dev.jpg",
+      "course": "Mobile App Development",
+      "name_inst": "Chris Evans",
+      "lesson": "17+ lessons",
+      "hours": "18hr 30min",
+      "rate": "4.7",
+      "price": "$150",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "15",
+      "img_course": "/assets/datascience-python.png",
+      "course": "Data Science with Python",
+      "name_inst": "Sophia Green",
+      "lesson": "14+ lessons",
+      "hours": "11hr 50min",
+      "rate": "4.6",
+      "price": "$130",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "16",
+      "img_course": "/assets/Kubernetes-Mastery.png",
+      "course": "Kubernetes Mastery",
+      "name_inst": "Daniel Foster",
+      "lesson": "10+ lessons",
+      "hours": "13hr 15min",
+      "rate": "4.7",
+      "price": "$120",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "17",
+      "img_course": "/assets/Photography-Basics.jpg",
+      "course": "Photography Basics",
+      "name_inst": "Olivia Carter",
+      "lesson": "12+ lessons",
+      "hours": "9hr 10min",
+      "rate": "4.5",
+      "price": "$115",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "18",
+      "img_course": "/assets/ReactNative.png",
+      "course": "React Native",
+      "name_inst": "Ryan Collins",
+      "lesson": "13+ lessons",
+      "hours": "10hr 45min",
+      "rate": "4.6",
+      "price": "$125",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "19",
+      "img_course": "/assets/angluar-fund.jpeg",
+      "course": "Angular Fundamentals",
+      "name_inst": "Sophia Turner",
+      "lesson": "15+ lessons",
+      "hours": "16hr 20min",
+      "rate": "4.8",
+      "price": "$145",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    },
+    {
+      "id": "20",
+      "img_course": "/assets/aws-pri.jpg",
+      "course": "AWS Cloud Practitioner",
+      "name_inst": "Ethan Brooks",
+      "lesson": "10+ lessons",
+      "hours": "8hr 45min",
+      "rate": "4.9",
+      "price": "$135",
+      "discount": "$99",
+      "job": "Instructor",
+      "img_inst": "/assets/inst1.jpg"
+    }
+  ],
+  "blogs_news": [
+    {
+      "id": "1",
+      "name_blog": "Learn Webs Applications Development from Experts",
+      "img_blog": "/assets/blog-05.jpg",
+      "date_blog": "April 20, 2024",
+      "tag_blog": "Programming, Web Development",
+      "admin_img": "/assets/inst1.jpg",
+      "admin_name": "Jenis R."
+    },
+    {
+      "id": "2",
+      "name_blog": "Expand Your Career Opportunities With Python",
+      "img_blog": "/assets/blog-06.jpg",
+      "date_blog": "May 20, 2024",
+      "tag_blog": "Programming, Courses",
+      "admin_img": "/assets/inst1.jpg",
+      "admin_name": "Roland R"
+    },
+    {
+      "id": "3",
+      "name_blog": "Complete JavaScript Programming Career Guideline",
+      "img_blog": "/assets/blog-07.jpg",
+      "date_blog": "Jun 15, 2024",
+      "tag_blog": "Programming, Web Development",
+      "admin_img": "/assets/inst1.jpg",
+      "admin_name": "William R."
+    }
+  ],
+  "RecentBlogs": [
+    {
+      "id": "1",
+      "img_blog": "/assets/recent-blog-1.jpg",
+      "desc_blog": "Learn Webs Applications Development from Experts",
+      "date_blog": "Jun 14, 2024"
+    },
+    {
+      "id": "2",
+      "img_blog": "/assets/recent-blog-2.jpg",
+      "desc_blog": "Expand Your Career Opportunities With Python",
+      "date_blog": "May 9, 2024"
+    },
+    {
+      "id": "3",
+      "img_blog": "/assets/recent-blog-3.jpg",
+      "desc_blog": "Complete PHP Programming Career Guideline",
+      "date_blog": "Dec 20, 2024"
+    }
+  ],
+  "Users": [
+    {
+      "id": "1",
+      "fullName": "SeifEhab",
+      "email": "sefehab189@gmail.com",
+      "password": "123456789",
+      "purchasedItems": [
+        {
+          "id": "1",
+          "price": "$120",
+          "img_course": "/assets/ui-course.jpg",
+          "course": "UI/UX Design",
+          "discount": "$99",
+          "hours": "9hr 30min",
+          "img_inst": "/assets/inst1.jpg",
+          "job": "Instructor",
+          "lesson": "12+ lessons",
+          "name_inst": "Nicole Brown",
+          "rate": "4.0",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "price": "$150",
+          "img_course": "/assets/ds-algorithm-course.jpg",
+          "course": "Data Structures & Algorithms",
+          "discount": "$99",
+          "hours": "15hr 30min",
+          "img_inst": "/assets/inst1.jpg",
+          "job": "Instructor",
+          "lesson": "15+ lessons",
+          "name_inst": "Alman Josh",
+          "rate": "5.0",
+          "quantity": 1
+        },
+        {
+          "id": "6",
+          "price": "$115",
+          "img_course": "/assets/react-course.jpg",
+          "course": "React Fundamentals",
+          "discount": "$99",
+          "hours": "12hr 30min",
+          "img_inst": "/assets/inst1.jpg",
+          "job": "Instructor",
+          "lesson": "10+ lessons",
+          "name_inst": "John Smith",
+          "rate": "4.3",
+          "quantity": 1
+        },
+        {
+          "id": "10",
+          "price": "$155",
+          "img_course": "/assets/game-deve.jpg",
+          "course": "Game Development with Unity",
+          "discount": "$99",
+          "hours": "20hr 00min",
+          "img_inst": "/assets/inst1.jpg",
+          "job": "Instructor",
+          "lesson": "18+ lessons",
+          "name_inst": "Michael Roberts",
+          "rate": "4.8",
+          "quantity": 1
+        },
+        {
+          "id": "9",
+          "price": "$100",
+          "img_course": "/assets/digital-marketing.png",
+          "course": "Digital Marketing",
+          "discount": "$99",
+          "hours": "7hr 30min",
+          "img_inst": "/assets/inst1.jpg",
+          "job": "Instructor",
+          "lesson": "11+ lessons",
+          "name_inst": "Emily Davis",
+          "rate": "4.5",
+          "quantity": 1
+        },
+        {
+          "id": "18",
+          "price": "$125",
+          "img_course": "/assets/ReactNative.png",
+          "course": "React Native",
+          "discount": "$99",
+          "hours": "10hr 45min",
+          "img_inst": "/assets/inst1.jpg",
+          "job": "Instructor",
+          "lesson": "13+ lessons",
+          "name_inst": "Ryan Collins",
+          "rate": "4.6",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "3cf8",
+      "fullName": "SeifEhab",
+      "email": "sefehab189@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": "23bd",
+      "fullName": "SeifEhab",
+      "email": "email@gmail.com",
+      "password": "1234567891"
+    },
+    {
+      "id": "7579",
+      "fullName": "MohamedKhaled",
+      "email": "mohamedkhaled12@gmail.com",
+      "password": "123456789"
+    }
+  ]
+}

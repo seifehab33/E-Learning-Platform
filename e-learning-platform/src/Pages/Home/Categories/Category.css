@@ -1,0 +1,27 @@
+.category-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  z-index: 10;
+}
+
+.category-pagination .swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border-radius: 9999px;
+  margin: 0 4px;
+  transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+.category-pagination .swiper-pagination-bullet-active {
+  background-color: var(--peach-color);
+  width: 50px;
+  height: 15px;
+}
+.category-pagination .swiper-pagination-bullet:hover {
+  background-color: var(--peach-color);
+  width: 50px;
+  height: 15px;
+}
