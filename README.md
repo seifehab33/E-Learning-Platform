@@ -1,6 +1,6 @@
 # E-Learning Platform
 
-Welcome to the **E-Learning Platform**, a modern web application designed for learning and skill development. Explore a variety of courses and blogs, purchase courses, and enhance your knowledge with ease.
+Welcome to the **E-Learning Platform (SkillHub)**, a modern web application designed for learning and skill development. Explore a variety of courses and blogs, purchase courses, and enhance your knowledge with ease.
 
 ## Features
 
