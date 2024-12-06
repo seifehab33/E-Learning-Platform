@@ -4,22 +4,26 @@ Welcome to the **E-Learning Platform**, a modern web application designed for le
 
 ## Features
 
-- 🖥️ **Browse Courses**: View and explore a wide range of courses.
-- 📚 **Read Blogs**: Access insightful blogs on various topics.
-- 🛒 **Buy Courses**: Seamless purchase process for users.
-- 🔄 **Dynamic UI**: Smooth and responsive user experience.
+* 🖥️ **Browse Courses**: View and explore a wide range of courses.
+* 📚 **Read Blogs**: Access insightful blogs on various topics.
+* 🛒 **Buy Courses**: Seamless purchase process for users.
+* 🔄 **Dynamic UI**: Smooth and responsive user experience.
 
 ## Tech Stack
 
 The project is built with the following technologies:
 
-- **Frontend**:
-  - [React](https://reactjs.org/) for building user interfaces.
-  - [Redux Toolkit](https://redux-toolkit.js.org/) for state management.
-  - [Tailwind CSS](https://tailwindcss.com/) for styling and responsiveness.
-- **Data Fetching**:
-  - [JSON Server](https://github.com/typicode/json-server) for simulating API endpoints.
-  - [React Query](https://tanstack.com/query/latest) for managing server state and caching.
+* **Frontend**:
+  * [React](https://reactjs.org/) for building user interfaces.
+  * [Redux Toolkit](https://redux-toolkit.js.org/) for state management.
+  * [Tailwind CSS](https://tailwindcss.com/) for styling and responsiveness.
+  * [TypeScript](https://www.typescriptlang.org/) for static typing and type safety.
+  * [Vite](https://vitejs.dev/) as the build tool for fast and optimized development.
+
+* **Data Fetching**:
+  * [JSON Server](https://github.com/typicode/json-server) for simulating API endpoints.
+  * [React Query](https://tanstack.com/query/latest) for managing server state and caching.
+
 
 ## Installation and Setup
 
