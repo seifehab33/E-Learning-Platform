@@ -78,7 +78,6 @@ function CourseCard({ selectedCourses, selectedInstructors }: CourseCardProps) {
               onToggleFavorite={toggleFavorite}
               courseLayout={true}
               courseIds={courseId}
-              purchasedCourses={currentCourses}
             />
           </motion.div>
           <div className="flex justify-center mt-4">

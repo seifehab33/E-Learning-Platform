@@ -23,7 +23,7 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import { useLocation } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 interface CourseGridProps {
   courses: Course[];
   courseIds?: string[]; // List of course IDs to display (e.g., from the cart slice)
@@ -261,9 +261,11 @@ const CourseCard: React.FC<{
         <div className="info-featured-course flex flex-col ">
           {isGrid && courseLayout && (
             <div className="name-course my-2">
-              <h1 className="text-[var(--text-color)] font-bold text-xl group-hover:text-white transition-colors duration-300">
-                {course.course}
-              </h1>
+              <Link to={`/course-details/${course.id}`}>
+                <h1 className="text-[var(--text-color)] font-bold text-sm group-hover:text-white transition-colors duration-300">
+                  {course.course}
+                </h1>
+              </Link>
             </div>
           )}
           <div className="info-inst flex items-center gap-2 text-[var(--text-color)]">
@@ -294,9 +296,11 @@ const CourseCard: React.FC<{
 
           {!isGrid && (
             <div className="name-course mt-2">
-              <h1 className="text-[var(--text-color)] font-bold text-sm group-hover:text-white transition-colors duration-300">
-                {course.course}
-              </h1>
+              <Link to={`/course-details/${course.id}`}>
+                <h1 className="text-[var(--text-color)] font-bold text-sm group-hover:text-white transition-colors duration-300">
+                  {course.course}
+                </h1>
+              </Link>
             </div>
           )}
         </div>

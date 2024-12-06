@@ -16,6 +16,7 @@ import SpinnerFallback from "./components/SpinnerFallback/SpinnerFallback";
 import SignUp from "./Pages/SignUp/SignUp";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import FooterWithSocialLinks from "./components/Footer/Footer";
+import CourseDetails from "./Pages/Home/CourseDetails/CourseDetails";
 
 const InstructorLayout = lazy(
   () => import("./Pages/Instructor/InstructorMain/InstructorLayout")
@@ -45,6 +46,10 @@ function MainLayout() {
             <Route element={<ProtectedRoute />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/cart/:id" element={<Cart />} />
+              <Route
+                path="/course-details/:courseId"
+                element={<CourseDetails />}
+              />
             </Route>{" "}
           </Routes>
         </Suspense>

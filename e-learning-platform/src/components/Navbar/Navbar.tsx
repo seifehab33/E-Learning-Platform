@@ -116,7 +116,7 @@ export const NavbarWithMegaMenu: React.FC = () => {
   };
 
   return (
-    <nav className="max-w-full w-full px-8 py-2 rounded-none shadow-none bg-[var(--nav-color)] fixed top-0 z-10">
+    <nav className="max-w-full w-full px-8 py-2 rounded-none shadow-none bg-[var(--nav-color)] fixed top-0 z-50">
       <div className="container-main flex items-center justify-between text-black ">
         <a href="#" className="mr-4 cursor-pointer flex items-center">
           <img src={logo} alt="Logo" className="w-36 h-10" loading="lazy" />

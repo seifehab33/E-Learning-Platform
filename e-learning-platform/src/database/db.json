@@ -290,11 +290,7 @@
       "name_inst": "Nicole Brown",
       "job": "Instructor",
       "students": "50 Students",
-      "courses": [
-        "UI/UX Design",
-        "Figma Essentials",
-        "Graphic Design"
-      ],
+      "courses": ["UI/UX Design", "Figma Essentials", "Graphic Design"],
       "lesson": "12+ lessons",
       "hours": "9hr 30min",
       "rate": "4.0 (15)"
@@ -365,11 +361,7 @@
       "name_inst": "John Smith",
       "job": "Instructor",
       "students": "50 Students",
-      "courses": [
-        "React Fundamentals",
-        "Advanced React",
-        "Next.js Mastery"
-      ],
+      "courses": ["React Fundamentals", "Advanced React", "Next.js Mastery"],
       "lesson": "10+ lessons",
       "hours": "12hr 30min",
       "rate": "4.3 (50)"
@@ -545,11 +537,7 @@
       "name_inst": "Ryan Collins",
       "job": "Instructor",
       "students": "50 Students",
-      "courses": [
-        "React Native",
-        "Cross-Platform Development",
-        "JavaScript"
-      ],
+      "courses": ["React Native", "Cross-Platform Development", "JavaScript"],
       "lesson": "13+ lessons",
       "hours": "10hr 45min",
       "rate": "4.6 (80)"
@@ -597,12 +585,26 @@
       "price": "$120",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "UI/UX Design",
+      "description": "UI/UX Design is a dynamic and essential skill in today’s digital world, where creating user-friendly and visually stunning experiences is key to success. This course provides a comprehensive guide to the fundamentals of user interface and user experience design, covering essential topics such as research, wireframing, prototyping, and accessibility. With real-world examples and hands-on projects, you’ll learn how to create designs that not only look great but also function seamlessly. Whether you’re a beginner or looking to enhance your skills, this course will equip you with the tools and strategies to excel in UI/UX design.",
+      "requirements": [
+        "Basic knowledge of graphic design tools.",
+        "Adobe XD or Figma installed.",
+        "Creativity and willingness to learn."
+      ],
+      "whatlearn": [
+        "User research and personas.",
+        "Creating prototypes in Adobe XD.",
+        "Designing accessible interfaces.",
+        "Best practices for UI/UX projects."
+      ],
+      "conclusion": "By the end of this course, you'll have the skills to design user-focused interfaces for websites and apps."
     },
     {
       "id": "2",
+      "course": "Master WordPress",
       "img_course": "/assets/wordpress-course.jpg",
-      "course": "Master Wordpress",
       "name_inst": "Jenis R.",
       "lesson": "11+ lessons",
       "hours": "6hr 45min",
@@ -610,20 +612,48 @@
       "price": "$110",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst2.jpg",
+      "classification": "Web Development",
+      "description": "WordPress is one of the most popular content management systems (CMS) globally, powering over 40% of all websites. In this comprehensive course, you’ll learn everything from WordPress installation and configuration to advanced customization. Discover how to build dynamic websites and blogs without writing a single line of code, and gain hands-on experience with theme and plugin development. Additionally, this course covers essential SEO optimization techniques to improve website performance and visibility. Whether you’re a complete beginner or want to elevate your skills, this course will transform you into a proficient WordPress user.",
+      "requirements": [
+        "No prior experience needed.",
+        "A computer with internet access.",
+        "Basic understanding of web browsing."
+      ],
+      "whatlearn": [
+        "Install and configure WordPress.",
+        "Customize themes and plugins.",
+        "Build e-commerce stores with WooCommerce.",
+        "Implement SEO techniques."
+      ],
+      "conclusion": "By the end of this course, you’ll create and manage WordPress websites efficiently."
     },
     {
       "id": "3",
-      "img_course": "/assets/sketch-course.jpg",
       "course": "Sketch App Design Course",
+      "img_course": "/assets/sketch-course.jpg",
       "name_inst": "Jesse Stevens",
       "lesson": "16+ lessons",
       "hours": "7hr 30min",
-      "rate": "4.4",
+      "rate": "4.5",
       "price": "$130",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst3.jpg",
+      "classification": "Graphic Design",
+      "description": "Dive into the world of professional design with this Sketch App Design course. Sketch is a leading design tool used by top UI/UX designers to craft elegant and functional user interfaces. This course takes you step-by-step through Sketch’s powerful features, teaching you how to create wireframes, prototypes, and final designs for web and mobile apps. Learn how to use Sketch plugins to optimize your workflow and collaborate effectively with developers. Through practical projects and expert guidance, you’ll gain the confidence to tackle any design challenge.",
+      "requirements": [
+        "A Mac computer with Sketch installed.",
+        "Basic understanding of design principles.",
+        "A passion for creativity and learning."
+      ],
+      "whatlearn": [
+        "Master the Sketch App interface.",
+        "Create professional prototypes and mockups.",
+        "Optimize design workflows with plugins.",
+        "Collaborate effectively with developers."
+      ],
+      "conclusion": "By the end of this course, you’ll be able to use Sketch App like a pro and produce high-quality designs."
     },
     {
       "id": "4",
@@ -636,7 +666,20 @@
       "price": "$140",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Networking",
+      "description": "This course provides a comprehensive introduction to computer networks, explaining the basic concepts, components, and protocols used in modern networking. Learn how networks are structured and how data is transmitted across different devices. Topics include IP addressing, subnetting, network topologies, and routing techniques. By the end of the course, you'll have a solid understanding of how to configure and troubleshoot networks, which is essential for anyone working in IT or network administration.",
+      "requirements": [
+        "Basic understanding of computers",
+        "Interest in networking"
+      ],
+      "whatlearn": [
+        "Understand the fundamentals of networking",
+        "Learn IP addressing and subnetting",
+        "Master network protocols like TCP/IP",
+        "Configure and troubleshoot networks"
+      ],
+      "conclusion": "By completing this course, you'll be equipped with the knowledge to set up and manage networks, making you valuable in fields like IT support and network engineering."
     },
     {
       "id": "5",
@@ -649,7 +692,20 @@
       "price": "$150",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Computer Science",
+      "description": "Master the essential concepts of data structures and algorithms that are fundamental to programming and software development. This course dives into key structures like arrays, linked lists, stacks, queues, trees, and graphs, and introduces various sorting and searching algorithms. It covers the theoretical aspects as well as practical implementations, helping you to write efficient code. With hands-on examples and challenges, you will learn how to optimize your solutions and tackle complex problems in coding interviews and real-world applications.",
+      "requirements": [
+        "Basic programming knowledge",
+        "Familiarity with basic math"
+      ],
+      "whatlearn": [
+        "Master data structures like trees and graphs",
+        "Implement common algorithms like quicksort and binary search",
+        "Learn to solve complex problems efficiently",
+        "Understand time and space complexity"
+      ],
+      "conclusion": "This course will arm you with the knowledge and skills needed to ace coding interviews and excel in programming challenges, preparing you for software engineering roles."
     },
     {
       "id": "6",
@@ -662,7 +718,20 @@
       "price": "$115",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Web Development",
+      "description": "Get started with React, one of the most popular JavaScript libraries for building interactive UIs. This course introduces the core concepts of React, including components, JSX, state management, and props. You'll also learn how to work with hooks, handle events, and manage data flow in your applications. By the end of the course, you'll be able to create functional and dynamic web applications using React, and understand how to scale your projects with best practices.",
+      "requirements": [
+        "Basic knowledge of JavaScript",
+        "Understanding of HTML and CSS"
+      ],
+      "whatlearn": [
+        "Learn the basics of React components",
+        "Master state and props management",
+        "Understand JSX syntax",
+        "Build interactive user interfaces"
+      ],
+      "conclusion": "By the end of this course, you'll have the skills to develop and deploy modern web applications using React, setting you up for success in frontend development."
     },
     {
       "id": "7",
@@ -675,7 +744,20 @@
       "price": "$125",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Web Development",
+      "description": "This course teaches you full-stack web development, combining both frontend and backend technologies. You'll work with modern tools like HTML, CSS, JavaScript, and React for the frontend, and Node.js and Express for building RESTful APIs. The course also covers working with databases like MongoDB, and introduces the concept of authentication and authorization. By the end of this course, you will have the knowledge to build and deploy full-stack applications, making you a well-rounded developer.",
+      "requirements": [
+        "Familiarity with HTML, CSS, and JavaScript",
+        "Basic understanding of databases"
+      ],
+      "whatlearn": [
+        "Understand frontend and backend technologies",
+        "Build and deploy full-stack web applications",
+        "Work with RESTful APIs",
+        "Implement user authentication and authorization"
+      ],
+      "conclusion": "Upon completing this course, you'll have the skills to build end-to-end web applications and be equipped to tackle real-world development projects."
     },
     {
       "id": "8",
@@ -688,7 +770,17 @@
       "price": "$160",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Data Science",
+      "description": "Learn how to use Python for data science and machine learning in this hands-on course. Starting with basic Python programming, the course covers data manipulation with libraries like NumPy and Pandas, data visualization with Matplotlib, and building machine learning models with scikit-learn. You'll also work on real-world projects like analyzing datasets, building predictive models, and visualizing data insights. By the end of the course, you'll be ready to take on data analysis and machine learning projects.",
+      "requirements": ["Basic Python knowledge", "Interest in data science"],
+      "whatlearn": [
+        "Manipulate and analyze data using Pandas",
+        "Create visualizations using Matplotlib",
+        "Build and evaluate machine learning models",
+        "Apply data science techniques to real-world problems"
+      ],
+      "conclusion": "This course will provide you with the foundational skills needed to pursue a career in data science and machine learning, making you proficient in handling data and drawing actionable insights."
     },
     {
       "id": "9",
@@ -701,7 +793,20 @@
       "price": "$100",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Marketing",
+      "description": "In this digital marketing course, you'll learn how to use online platforms to promote products, services, and brands. Topics include SEO (Search Engine Optimization), SEM (Search Engine Marketing), social media marketing, email marketing, and content marketing. Learn how to craft effective campaigns, analyze performance metrics, and engage with your target audience on platforms like Google, Facebook, and Instagram. By the end of the course, you'll have the knowledge to launch and manage digital marketing campaigns from start to finish.",
+      "requirements": [
+        "Interest in marketing",
+        "Basic understanding of the internet"
+      ],
+      "whatlearn": [
+        "Master digital marketing channels",
+        "Understand SEO and SEM strategies",
+        "Build social media and email marketing campaigns",
+        "Analyze marketing performance and optimize campaigns"
+      ],
+      "conclusion": "Completing this course will enable you to design and execute successful digital marketing campaigns, helping you grow your brand or business in the digital age."
     },
     {
       "id": "10",
@@ -714,7 +819,20 @@
       "price": "$155",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Game Development",
+      "description": "Learn game development from scratch using Unity, one of the most popular game engines. This course covers everything from basic game mechanics to creating immersive environments and integrating physics. You'll build several games, including a platformer and a 3D adventure game, learning how to implement game controls, camera systems, and animations. You'll also explore the principles of game design and learn how to optimize games for various platforms. By the end of the course, you'll have the skills to create your own games and bring them to life using Unity.",
+      "requirements": [
+        "Basic programming knowledge",
+        "Interest in game development"
+      ],
+      "whatlearn": [
+        "Understand Unity interface and game engine fundamentals",
+        "Create 2D and 3D games",
+        "Implement physics, animations, and sound",
+        "Learn about game design and optimization"
+      ],
+      "conclusion": "Completing this course will allow you to design and develop your own games, giving you the skills needed to break into the game development industry."
     },
     {
       "id": "11",
@@ -727,7 +845,20 @@
       "price": "$135",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Design",
+      "requirements": [
+        "Basic understanding of Photoshop",
+        "Knowledge of design principles"
+      ],
+      "description": "This course focuses on advanced Photoshop techniques, helping you master complex design projects. You will learn how to enhance photos, create realistic compositions, and utilize Photoshop's advanced tools such as filters, layer styles, and masks. Emphasis will be placed on working with large files, retouching, and creating professional visual content for print and digital platforms.",
+      "whatlearn": [
+        "Master advanced Photoshop tools",
+        "Create realistic photo manipulations",
+        "Enhance images and retouch photos",
+        "Use advanced techniques for digital and print design"
+      ],
+      "conclusion": "By the end of this course, you will have mastered complex Photoshop techniques and be ready to tackle professional design projects with enhanced skills."
     },
     {
       "id": "12",
@@ -740,7 +871,20 @@
       "price": "$145",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Blockchain",
+      "requirements": [
+        "Basic understanding of programming",
+        "Familiarity with decentralized systems"
+      ],
+      "description": "This course dives into the technical aspects of blockchain development. You will learn how to build and deploy your own blockchain applications using smart contracts. Topics covered include blockchain architecture, creating decentralized applications (dApps), and implementing smart contracts using Solidity, Ethereum, and other blockchain frameworks.",
+      "whatlearn": [
+        "Understand blockchain architecture",
+        "Develop smart contracts using Solidity",
+        "Build decentralized applications (dApps)",
+        "Deploy blockchain-based solutions"
+      ],
+      "conclusion": "Upon completing this course, you will have the skills to develop and deploy decentralized applications, as well as create secure blockchain-based solutions."
     },
     {
       "id": "13",
@@ -753,7 +897,20 @@
       "price": "$140",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Cybersecurity",
+      "requirements": [
+        "Basic knowledge of computer networks",
+        "Interest in security technologies"
+      ],
+      "description": "In this course, you'll learn the fundamentals of cybersecurity, including common threats and vulnerabilities. Topics include encryption, firewalls, penetration testing, and security best practices for individuals and organizations. The course also covers the importance of ethical hacking and understanding security protocols to safeguard systems from cyber-attacks.",
+      "whatlearn": [
+        "Identify and mitigate common cybersecurity threats",
+        "Understand encryption and cryptography",
+        "Learn ethical hacking and penetration testing",
+        "Apply security best practices to protect systems and networks"
+      ],
+      "conclusion": "After completing this course, you'll be equipped with the fundamental cybersecurity knowledge needed to identify and mitigate threats while ensuring the safety of your systems and networks."
     },
     {
       "id": "14",
@@ -766,7 +923,20 @@
       "price": "$150",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Mobile Development",
+      "requirements": [
+        "Basic knowledge of programming",
+        "Familiarity with mobile platforms (Android or iOS)"
+      ],
+      "description": "This course covers the entire process of mobile app development, from design to deployment. Learn how to build mobile applications for Android and iOS using modern frameworks like React Native. The course will teach you about UI/UX design principles, API integration, and how to handle device features such as GPS, cameras, and sensors.",
+      "whatlearn": [
+        "Build mobile apps using React Native",
+        "Design mobile-friendly user interfaces",
+        "Integrate APIs and third-party services",
+        "Handle device features like GPS and camera"
+      ],
+      "conclusion": "By the end of this course, you will have developed the skills needed to create fully functional mobile applications for both Android and iOS using React Native."
     },
     {
       "id": "15",
@@ -779,7 +949,20 @@
       "price": "$130",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Data Science",
+      "requirements": [
+        "Basic knowledge of Python programming",
+        "Understanding of basic statistics"
+      ],
+      "description": "This course will teach you how to use Python for data science, focusing on libraries such as Pandas, NumPy, and Matplotlib. You'll learn how to clean and preprocess data, create visualizations, and perform basic machine learning tasks like regression and classification. The course also includes practical examples of using data science to solve real-world problems.",
+      "whatlearn": [
+        "Work with data using Python libraries",
+        "Clean and preprocess data for analysis",
+        "Visualize data insights with Matplotlib",
+        "Apply machine learning algorithms to real-world datasets"
+      ],
+      "conclusion": "After completing this course, you'll be able to use Python and its libraries to analyze data, visualize insights, and apply machine learning techniques to solve real-world problems."
     },
     {
       "id": "16",
@@ -792,7 +975,20 @@
       "price": "$120",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Cloud Computing",
+      "requirements": [
+        "Basic knowledge of Docker",
+        "Understanding of cloud computing"
+      ],
+      "description": "This course provides an in-depth look at Kubernetes, the powerful container orchestration platform. Learn how to deploy, manage, and scale applications in containers. The course covers topics such as Kubernetes architecture, pod management, deployments, and services, as well as advanced concepts like Helm charts and security in Kubernetes environments.",
+      "whatlearn": [
+        "Deploy and manage applications using Kubernetes",
+        "Understand Kubernetes architecture",
+        "Use Helm for managing applications",
+        "Ensure security and scalability in Kubernetes"
+      ],
+      "conclusion": "By the end of this course, you will have the expertise to deploy, manage, and scale containerized applications using Kubernetes, with advanced knowledge of security and Helm charts."
     },
     {
       "id": "17",
@@ -805,7 +1001,20 @@
       "price": "$115",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Photography",
+      "requirements": [
+        "Basic understanding of photography concepts",
+        "Access to a camera"
+      ],
+      "description": "This course will teach you the fundamentals of photography, from understanding your camera's settings to composing beautiful shots. You'll learn about exposure, lighting, depth of field, and how to capture both natural and artificial light effectively. The course also covers editing techniques to enhance your photos and bring your creative vision to life.",
+      "whatlearn": [
+        "Master exposure settings and lighting techniques",
+        "Understand composition and framing",
+        "Edit and enhance photos using software",
+        "Capture stunning images in various lighting conditions"
+      ],
+      "conclusion": "Upon completing this course, you will be proficient in photography basics, from adjusting settings and capturing the perfect shot to editing and enhancing your images."
     },
     {
       "id": "18",
@@ -818,33 +1027,72 @@
       "price": "$125",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Mobile Development",
+      "requirements": [
+        "Basic knowledge of JavaScript",
+        "Familiarity with ReactJS"
+      ],
+      "description": "In this course, you'll learn how to build native mobile applications using React Native. This cross-platform framework allows you to use JavaScript and React to develop apps for both iOS and Android. You'll cover topics like navigation, state management, and building reusable components, as well as integrating APIs and handling mobile-specific functionality like push notifications.",
+      "whatlearn": [
+        "Build mobile apps using React Native",
+        "Implement navigation and state management",
+        "Integrate APIs and handle push notifications",
+        "Design responsive mobile UIs"
+      ],
+      "conclusion": "After completing this course, you will be able to develop and deploy mobile applications for iOS and Android using React Native, including building responsive UIs and integrating APIs."
     },
     {
       "id": "19",
-      "img_course": "/assets/angluar-fund.jpeg",
-      "course": "Angular Fundamentals",
-      "name_inst": "Sophia Turner",
-      "lesson": "15+ lessons",
-      "hours": "16hr 20min",
+      "img_course": "/assets/blockchain-smart-contracts.jpg",
+      "course": "Blockchain Smart Contracts",
+      "name_inst": "Charlie Monroe",
+      "lesson": "20+ lessons",
+      "hours": "18hr 30min",
       "rate": "4.8",
-      "price": "$145",
+      "price": "$170",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Blockchain",
+      "requirements": [
+        "Basic understanding of blockchain",
+        "Knowledge of programming languages like Solidity"
+      ],
+      "description": "This course focuses on the development of smart contracts, a key component of blockchain technology. You will learn how to write, test, and deploy smart contracts on the Ethereum network. The course covers topics such as Solidity, contract security, and best practices for creating secure and efficient smart contracts for decentralized applications.",
+      "whatlearn": [
+        "Develop smart contracts using Solidity",
+        "Test and deploy smart contracts on Ethereum",
+        "Understand security practices for smart contract development",
+        "Build decentralized applications powered by smart contracts"
+      ],
+      "conclusion": "By the end of this course, you will have the skills to develop secure and efficient smart contracts using Solidity, and deploy them on Ethereum to power decentralized applications."
     },
     {
       "id": "20",
-      "img_course": "/assets/aws-pri.jpg",
-      "course": "AWS Cloud Practitioner",
-      "name_inst": "Ethan Brooks",
-      "lesson": "10+ lessons",
-      "hours": "8hr 45min",
+      "img_course": "/assets/advanced-cybersecurity.jpg",
+      "course": "Advanced Cybersecurity",
+      "name_inst": "Lucas Hale",
+      "lesson": "18+ lessons",
+      "hours": "16hr 45min",
       "rate": "4.9",
-      "price": "$135",
+      "price": "$160",
       "discount": "$99",
       "job": "Instructor",
-      "img_inst": "/assets/inst1.jpg"
+      "img_inst": "/assets/inst1.jpg",
+      "classification": "Cybersecurity",
+      "requirements": [
+        "Advanced knowledge of networking",
+        "Experience with security protocols and tools"
+      ],
+      "description": "This advanced course dives deep into the complexities of modern cybersecurity. It covers advanced topics such as intrusion detection, penetration testing, malware analysis, and threat hunting. You will also learn how to defend against and respond to sophisticated attacks, ensuring that your systems and networks are secure. The course includes real-world case studies and hands-on exercises to sharpen your skills.",
+      "whatlearn": [
+        "Conduct penetration testing and vulnerability assessments",
+        "Analyze and mitigate advanced cyber threats",
+        "Implement intrusion detection and prevention systems",
+        "Respond to security incidents and manage crisis situations"
+      ],
+      "conclusion": "Upon completing this course, you will be capable of tackling advanced cybersecurity challenges, including penetration testing, threat analysis, and securing systems from sophisticated attacks."
     }
   ],
   "blogs_news": [

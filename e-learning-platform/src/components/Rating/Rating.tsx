@@ -1,10 +1,10 @@
 import { FaRegStar, FaStar } from "react-icons/fa";
 
 interface StarRatingProps {
-  rate: number;
+  rate: number | undefined;
 }
 function Rating({ rate }: StarRatingProps) {
-  const roundedRate = Math.round(rate);
+  const roundedRate = rate ? Math.round(rate) : 0; // Use 0 if rate is undefined
 
   return (
     <div className="flex">

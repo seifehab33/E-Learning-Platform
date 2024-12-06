@@ -14,6 +14,11 @@ export interface Course {
   lesson: string;
   hours: string;
   rate: string;
+  classification?: string;
+  requirements?: string[];
+  description?: string;
+  whatlearn?: string[];
+  conclusion?: string;
   quantity: number;
 }
 
