@@ -6,6 +6,7 @@ Welcome to the **E-Learning Platform (SkillHub)**, a modern web application desi
 
 * 🖥️ **Browse Courses**: View and explore a wide range of courses.
 * 📚 **Read Blogs**: Access insightful blogs on various topics.
+* 🎥 **Watch Courses**: Watch your purchased courses directly on the platform.
 * 🛒 **Buy Courses**: Seamless purchase process for users.
 * 🔄 **Dynamic UI**: Smooth and responsive user experience.
 
