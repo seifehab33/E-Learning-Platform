@@ -24,6 +24,7 @@ function CourseDetailsHeader() {
           src={banner}
           alt="Course Banner"
           className="w-full object-cover h-[400px] sm:h-[400px] md:h-[400px] lg:h-[400px] xl:h-[300px] 2xl:h-[300px]"
+          style={{ aspectRatio: "16/9" }}
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75"></div>
 

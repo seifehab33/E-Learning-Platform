@@ -599,7 +599,8 @@
         "Designing accessible interfaces.",
         "Best practices for UI/UX projects."
       ],
-      "conclusion": "By the end of this course, you'll have the skills to design user-focused interfaces for websites and apps."
+      "conclusion": "By the end of this course, you'll have the skills to design user-focused interfaces for websites and apps.",
+      "course_link": "https://www.youtube.com/watch?v=c9Wg6Cb_YlU"
     },
     {
       "id": "2",
@@ -626,7 +627,8 @@
         "Build e-commerce stores with WooCommerce.",
         "Implement SEO techniques."
       ],
-      "conclusion": "By the end of this course, you’ll create and manage WordPress websites efficiently."
+      "conclusion": "By the end of this course, you’ll create and manage WordPress websites efficiently.",
+      "course_link": "https://www.youtube.com/watch?v=09gj5gM4V98"
     },
     {
       "id": "3",
@@ -653,7 +655,8 @@
         "Optimize design workflows with plugins.",
         "Collaborate effectively with developers."
       ],
-      "conclusion": "By the end of this course, you’ll be able to use Sketch App like a pro and produce high-quality designs."
+      "conclusion": "By the end of this course, you’ll be able to use Sketch App like a pro and produce high-quality designs.",
+      "course_link": "https://www.youtube.com/watch?v=pvpRGUYvbCw"
     },
     {
       "id": "4",
@@ -679,7 +682,8 @@
         "Master network protocols like TCP/IP",
         "Configure and troubleshoot networks"
       ],
-      "conclusion": "By completing this course, you'll be equipped with the knowledge to set up and manage networks, making you valuable in fields like IT support and network engineering."
+      "conclusion": "By completing this course, you'll be equipped with the knowledge to set up and manage networks, making you valuable in fields like IT support and network engineering.",
+      "course_link": "https://www.youtube.com/watch?v=VwN91x5i25g"
     },
     {
       "id": "5",
@@ -705,7 +709,8 @@
         "Learn to solve complex problems efficiently",
         "Understand time and space complexity"
       ],
-      "conclusion": "This course will arm you with the knowledge and skills needed to ace coding interviews and excel in programming challenges, preparing you for software engineering roles."
+      "conclusion": "This course will arm you with the knowledge and skills needed to ace coding interviews and excel in programming challenges, preparing you for software engineering roles.",
+      "course_link": "https://www.youtube.com/watch?v=oz9cEqFynHU"
     },
     {
       "id": "6",
@@ -731,7 +736,8 @@
         "Understand JSX syntax",
         "Build interactive user interfaces"
       ],
-      "conclusion": "By the end of this course, you'll have the skills to develop and deploy modern web applications using React, setting you up for success in frontend development."
+      "conclusion": "By the end of this course, you'll have the skills to develop and deploy modern web applications using React, setting you up for success in frontend development.",
+      "course_link": "https://www.youtube.com/watch?v=SqcY0GlETPk&t=163s"
     },
     {
       "id": "7",
@@ -757,7 +763,8 @@
         "Work with RESTful APIs",
         "Implement user authentication and authorization"
       ],
-      "conclusion": "Upon completing this course, you'll have the skills to build end-to-end web applications and be equipped to tackle real-world development projects."
+      "conclusion": "Upon completing this course, you'll have the skills to build end-to-end web applications and be equipped to tackle real-world development projects.",
+      "course_link": "https://www.youtube.com/watch?v=vgEVfaDmfTk"
     },
     {
       "id": "8",
@@ -780,7 +787,8 @@
         "Build and evaluate machine learning models",
         "Apply data science techniques to real-world problems"
       ],
-      "conclusion": "This course will provide you with the foundational skills needed to pursue a career in data science and machine learning, making you proficient in handling data and drawing actionable insights."
+      "conclusion": "This course will provide you with the foundational skills needed to pursue a career in data science and machine learning, making you proficient in handling data and drawing actionable insights.",
+      "course_link": "https://www.youtube.com/watch?v=mkv5mxYu0Wk"
     },
     {
       "id": "9",
@@ -806,7 +814,8 @@
         "Build social media and email marketing campaigns",
         "Analyze marketing performance and optimize campaigns"
       ],
-      "conclusion": "Completing this course will enable you to design and execute successful digital marketing campaigns, helping you grow your brand or business in the digital age."
+      "conclusion": "Completing this course will enable you to design and execute successful digital marketing campaigns, helping you grow your brand or business in the digital age.",
+      "course_link": "https://www.youtube.com/watch?v=bixR-KIJKYM"
     },
     {
       "id": "10",
@@ -832,7 +841,8 @@
         "Implement physics, animations, and sound",
         "Learn about game design and optimization"
       ],
-      "conclusion": "Completing this course will allow you to design and develop your own games, giving you the skills needed to break into the game development industry."
+      "conclusion": "Completing this course will allow you to design and develop your own games, giving you the skills needed to break into the game development industry.",
+      "course_link": "https://www.youtube.com/watch?v=XtQMytORBmM"
     },
     {
       "id": "11",
@@ -858,7 +868,8 @@
         "Enhance images and retouch photos",
         "Use advanced techniques for digital and print design"
       ],
-      "conclusion": "By the end of this course, you will have mastered complex Photoshop techniques and be ready to tackle professional design projects with enhanced skills."
+      "conclusion": "By the end of this course, you will have mastered complex Photoshop techniques and be ready to tackle professional design projects with enhanced skills.",
+      "course_link": "https://www.youtube.com/watch?v=ObKsCs5mYGQ"
     },
     {
       "id": "12",
@@ -884,7 +895,8 @@
         "Build decentralized applications (dApps)",
         "Deploy blockchain-based solutions"
       ],
-      "conclusion": "Upon completing this course, you will have the skills to develop and deploy decentralized applications, as well as create secure blockchain-based solutions."
+      "conclusion": "Upon completing this course, you will have the skills to develop and deploy decentralized applications, as well as create secure blockchain-based solutions.",
+      "course_link": "https://www.youtube.com/watch?v=SRyfhHppQik"
     },
     {
       "id": "13",
@@ -910,7 +922,8 @@
         "Learn ethical hacking and penetration testing",
         "Apply security best practices to protect systems and networks"
       ],
-      "conclusion": "After completing this course, you'll be equipped with the fundamental cybersecurity knowledge needed to identify and mitigate threats while ensuring the safety of your systems and networks."
+      "conclusion": "After completing this course, you'll be equipped with the fundamental cybersecurity knowledge needed to identify and mitigate threats while ensuring the safety of your systems and networks.",
+      "course_link": "https://www.youtube.com/watch?v=5MMoxyK1Y9o"
     },
     {
       "id": "14",
@@ -936,7 +949,8 @@
         "Integrate APIs and third-party services",
         "Handle device features like GPS and camera"
       ],
-      "conclusion": "By the end of this course, you will have developed the skills needed to create fully functional mobile applications for both Android and iOS using React Native."
+      "conclusion": "By the end of this course, you will have developed the skills needed to create fully functional mobile applications for both Android and iOS using React Native.",
+      "course_link": "https://www.youtube.com/watch?v=yye7rSsiV6k"
     },
     {
       "id": "15",
@@ -962,7 +976,8 @@
         "Visualize data insights with Matplotlib",
         "Apply machine learning algorithms to real-world datasets"
       ],
-      "conclusion": "After completing this course, you'll be able to use Python and its libraries to analyze data, visualize insights, and apply machine learning techniques to solve real-world problems."
+      "conclusion": "After completing this course, you'll be able to use Python and its libraries to analyze data, visualize insights, and apply machine learning techniques to solve real-world problems.",
+      "course_link": "https://www.youtube.com/watch?v=mkv5mxYu0Wk&t=2s"
     },
     {
       "id": "16",
@@ -988,7 +1003,8 @@
         "Use Helm for managing applications",
         "Ensure security and scalability in Kubernetes"
       ],
-      "conclusion": "By the end of this course, you will have the expertise to deploy, manage, and scale containerized applications using Kubernetes, with advanced knowledge of security and Helm charts."
+      "conclusion": "By the end of this course, you will have the expertise to deploy, manage, and scale containerized applications using Kubernetes, with advanced knowledge of security and Helm charts.",
+      "course_link": "https://www.youtube.com/watch?v=PziYflu8cB8"
     },
     {
       "id": "17",
@@ -1014,7 +1030,8 @@
         "Edit and enhance photos using software",
         "Capture stunning images in various lighting conditions"
       ],
-      "conclusion": "Upon completing this course, you will be proficient in photography basics, from adjusting settings and capturing the perfect shot to editing and enhancing your images."
+      "conclusion": "Upon completing this course, you will be proficient in photography basics, from adjusting settings and capturing the perfect shot to editing and enhancing your images.",
+      "course_link": "https://www.youtube.com/watch?v=V7z7BAZdt2M"
     },
     {
       "id": "18",
@@ -1040,7 +1057,8 @@
         "Integrate APIs and handle push notifications",
         "Design responsive mobile UIs"
       ],
-      "conclusion": "After completing this course, you will be able to develop and deploy mobile applications for iOS and Android using React Native, including building responsive UIs and integrating APIs."
+      "conclusion": "After completing this course, you will be able to develop and deploy mobile applications for iOS and Android using React Native, including building responsive UIs and integrating APIs.",
+      "course_link": "https://www.youtube.com/watch?v=gvkqT_Uoahw"
     },
     {
       "id": "19",
@@ -1066,7 +1084,8 @@
         "Understand security practices for smart contract development",
         "Build decentralized applications powered by smart contracts"
       ],
-      "conclusion": "By the end of this course, you will have the skills to develop secure and efficient smart contracts using Solidity, and deploy them on Ethereum to power decentralized applications."
+      "conclusion": "By the end of this course, you will have the skills to develop secure and efficient smart contracts using Solidity, and deploy them on Ethereum to power decentralized applications.",
+      "course_link": "https://www.youtube.com/watch?v=ZE2HxTmxfrI"
     },
     {
       "id": "20",
@@ -1092,7 +1111,8 @@
         "Implement intrusion detection and prevention systems",
         "Respond to security incidents and manage crisis situations"
       ],
-      "conclusion": "Upon completing this course, you will be capable of tackling advanced cybersecurity challenges, including penetration testing, threat analysis, and securing systems from sophisticated attacks."
+      "conclusion": "Upon completing this course, you will be capable of tackling advanced cybersecurity challenges, including penetration testing, threat analysis, and securing systems from sophisticated attacks.",
+      "course_link": "https://www.youtube.com/watch?v=Dsl-ILWzUHM"
     }
   ],
   "blogs_news": [

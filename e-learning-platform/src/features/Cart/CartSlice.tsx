@@ -20,6 +20,7 @@ export interface Course {
   whatlearn?: string[];
   conclusion?: string;
   quantity: number;
+  course_link?: string;
 }
 
 // Helper function to load isConfirmed from localStorage

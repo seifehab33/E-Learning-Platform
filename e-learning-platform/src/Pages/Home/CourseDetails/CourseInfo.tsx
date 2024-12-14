@@ -1,32 +1,42 @@
 import { CiHeart } from "react-icons/ci";
 import { IoShareOutline } from "react-icons/io5";
-import video from "../../../assets/video-course.png";
 import {
   ErrorWrapper,
   LoadingWrapper,
 } from "../FeaturedCourses/FeaturedCourses";
 import useCourseDetails from "./useCourseDetails";
-import React, { useMemo } from "react";
-import { IoMdDownload } from "react-icons/io";
+import { useMemo, useState, useEffect } from "react";
+import { IoMdClose, IoMdDownload } from "react-icons/io";
 import { AiOutlinePlayCircle } from "react-icons/ai";
 import { FaCloudDownloadAlt, FaKey } from "react-icons/fa";
 import { MdDevices } from "react-icons/md";
 import { SlGraduation } from "react-icons/sl";
 import { IoPeopleOutline } from "react-icons/io5";
 import { BiTimeFive, BiBookAlt, BiBarChart } from "react-icons/bi";
-import { FaVideo } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPurchasedItems } from "../../../features/Cart/PurchasedSlice";
-import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../../Store/store";
 import { addToCart } from "../../../features/Cart/CartSlice";
-// Discount calculation function
-function calculateDiscountPercentage(price: string, discount: string): string {
-  // Remove dollar signs and parse to numbers
+import ReactPlayer from "react-player";
+import { useNavigate } from "react-router-dom";
+
+// Memoized includes array outside of the component
+const includes = [
+  { id: 1, icon: <IoMdDownload />, text: "11 hours on-demand video" },
+  { id: 2, icon: <AiOutlinePlayCircle />, text: "69 downloadable resources" },
+  { id: 3, icon: <FaKey />, text: "Full lifetime access" },
+  { id: 4, icon: <MdDevices />, text: "Access on mobile and TV" },
+  { id: 5, icon: <FaCloudDownloadAlt />, text: "Assignments" },
+  { id: 6, icon: <SlGraduation />, text: "Certificate of Completion" },
+];
+
+// Memoize discount calculation
+const calculateDiscountPercentage = (
+  price: string,
+  discount: string
+): string => {
   const priceNum = parseFloat(price.replace("$", ""));
   const discountNum = parseFloat(discount.replace("$", ""));
-
-  // Validate parsed numbers
   if (
     isNaN(priceNum) ||
     isNaN(discountNum) ||
@@ -37,76 +47,106 @@ function calculateDiscountPercentage(price: string, discount: string): string {
     return "0%";
   }
 
-  // Calculate percentage
   const percentage = ((priceNum - discountNum) / priceNum) * 100;
   return `${Math.round(percentage)}%`;
-}
-const includes = [
-  { id: 1, icon: <IoMdDownload />, text: "11 hours on-demand video" },
-  { id: 2, icon: <AiOutlinePlayCircle />, text: "69 downloadable resources" },
-  { id: 3, icon: <FaKey />, text: "Full lifetime access" },
-  { id: 4, icon: <MdDevices />, text: "Access on mobile and TV" },
-  { id: 5, icon: <FaCloudDownloadAlt />, text: "Assignments" },
-  { id: 6, icon: <SlGraduation />, text: "Certificate of Completion" },
-];
+};
+
 function CourseInfo() {
   const { Details, isLoading, isError } = useCourseDetails();
+  const [isModalOpen, setModalOpen] = useState(false);
   const purchasedItems = useSelector(selectPurchasedItems);
   const dispatch = useDispatch<AppDispatch>();
+  const [Ready, setIsReady] = useState(true);
   const navigate = useNavigate();
-  const handleEnrollClick = () => {
-    const courseId = Details?.id;
-
-    // Check if the course is already in purchasedItems
-    const isPurchased = purchasedItems.some((item) => item.id === courseId);
-
-    if (isPurchased) {
-      alert("You are already enrolled in this course.");
-    } else {
-      const newCartItem = {
-        id: Details?.id ?? "",
-        price: Details?.price ?? "0",
-        img_course: Details?.img_course ?? "",
-        course: Details?.course ?? "",
-        discount: Details?.discount ?? "0",
-        hours: Details?.hours ?? "0",
-        img_inst: Details?.img_inst ?? "",
-        job: Details?.job ?? "",
-        lesson: Details?.lesson ?? "",
-        name_inst: Details?.name_inst ?? "",
-        rate: Details?.rate ?? "0",
-        quantity: 1,
-      };
-
-      dispatch(addToCart(newCartItem));
-
-      const cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
-      localStorage.setItem(
-        "cartItems",
-        JSON.stringify([...cartItems, newCartItem])
-      );
-
-      navigate("/cart/:id");
-    }
+  const handlePlayerReady = () => {
+    setIsReady(false);
   };
+
+  const handleStart = () => {
+    setIsReady(false);
+  };
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const courseId = Details?.id;
+  const isPurchased = purchasedItems.some((item) => item.id === courseId);
+
+  // Memoize discount percentage calculation
   const discountPercentage = useMemo(() => {
     if (!Details?.price || !Details?.discount) return "0%";
     return calculateDiscountPercentage(Details.price, Details.discount);
   }, [Details?.price, Details?.discount]);
+
+  const handleEnrollClick = () => {
+    if (!Details) return;
+
+    const newCartItem = {
+      id: Details?.id ?? "",
+      price: Details?.price ?? "0",
+      img_course: Details?.img_course ?? "",
+      course: Details?.course ?? "",
+      discount: Details?.discount ?? "0",
+      hours: Details?.hours ?? "0",
+      img_inst: Details?.img_inst ?? "",
+      job: Details?.job ?? "",
+      lesson: Details?.lesson ?? "",
+      name_inst: Details?.name_inst ?? "",
+      rate: Details?.rate ?? "0",
+      quantity: 1,
+    };
+
+    dispatch(addToCart(newCartItem));
+    navigate("/cart/:id");
+  };
+
+  // Effect to update localStorage only when the cart changes
+  useEffect(() => {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+    const newCartItem = {
+      id: Details?.id ?? "",
+      price: Details?.price ?? "0",
+      img_course: Details?.img_course ?? "",
+      course: Details?.course ?? "",
+      discount: Details?.discount ?? "0",
+      hours: Details?.hours ?? "0",
+      img_inst: Details?.img_inst ?? "",
+      job: Details?.job ?? "",
+      lesson: Details?.lesson ?? "",
+      name_inst: Details?.name_inst ?? "",
+      rate: Details?.rate ?? "0",
+      quantity: 1,
+    };
+
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify([...cartItems, newCartItem])
+    );
+  }, [Details]);
 
   if (isLoading) return <LoadingWrapper />;
   if (isError) return <ErrorWrapper />;
 
   return (
     <>
-      <div className="video-course w-full flex justify-center mt-0  lg:-mt-72">
+      <div className="video-course w-full flex justify-center mt-0 lg:-mt-72">
         <div className="w-full bg-[var(--nav-color)] px-3 max-w-3xl z-20 py-4 rounded-md text-[var(--text-color)] border border-gray-800 drop-shadow-lg shadow shadow-gray-900">
-          <div>
+          <div className="">
             <div className="mb-4">
-              <img
-                src={video}
-                className="w-full rounded-md"
+              {Ready && <LoadingWrapper />}
+              <ReactPlayer
+                url={Details?.course_link}
                 alt="Course Video Thumbnail"
+                height={200}
+                width="100%"
+                controls
+                onReady={handlePlayerReady}
+                onStart={handleStart}
               />
             </div>
 
@@ -125,26 +165,52 @@ function CourseInfo() {
               >
                 <CiHeart size={20} /> Add to Wishlist
               </button>
-              <button
-                className="border border-[var(--peach-color)] px-6 py-1 rounded-md flex items-center gap-2 hover:bg-[var(--peach-color)] transition-colors duration-200 ease-in hover:text-white"
-                aria-label="Share"
-              >
+              <button className="border border-[var(--peach-color)] cursor-pointer px-6 py-1 rounded-md flex items-center gap-2 hover:bg-[var(--peach-color)] transition-colors duration-200 ease-in hover:text-white">
                 <IoShareOutline size={20} />
                 Share
               </button>
             </div>
 
-            {/* Enroll Button */}
             <button
-              className="bg-green-700 text-white w-full rounded-full py-3 font-bold hover:bg-green-800 transition-colors"
-              aria-label="Enroll Now"
-              onClick={handleEnrollClick}
+              className={`${
+                isPurchased ? "bg-blue-700" : "bg-green-700"
+              } text-white w-full rounded-full py-3 font-bold hover:${
+                isPurchased ? "bg-blue-800" : "bg-green-800"
+              } transition-colors cursor-pointer`}
+              aria-label={isPurchased ? "Watch Course" : "Enroll Now"}
+              onClick={() => {
+                if (isPurchased) {
+                  handleOpenModal();
+                } else {
+                  handleEnrollClick();
+                }
+              }}
             >
-              Enroll Now
+              {isPurchased ? "Watch Course" : "Enroll Now"}
             </button>
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center px-5">
+          <div className="relative bg-black w-full max-w-4xl p-4 rounded-md shadow-lg">
+            <button
+              className="absolute top-3 right-3 text-white text-2xl"
+              onClick={handleCloseModal}
+              aria-label="Close Modal"
+            >
+              <IoMdClose />
+            </button>
+            <ReactPlayer
+              url={Details?.course_link} // Replace with actual video URL
+              playing
+              controls
+              width="100%"
+              height="400px"
+            />
+          </div>
+        </div>
+      )}
       <div className="w-full mt-10 bg-[var(--nav-color)] px-3 max-w-3xl z-20 py-4 rounded-md text-[var(--text-color)] border border-gray-800 drop-shadow-lg shadow shadow-gray-900">
         <h1 className="text-xl font-bold">Includes</h1>
         {includes.map((include) => (
@@ -179,13 +245,9 @@ function CourseInfo() {
 
           <li className="flex items-center gap-2">
             <BiBarChart className="text-[#392c7d]" />
-            <span className="text-[var(--text-color)]">Level: Beginner</span>
-          </li>
-          <hr className="mt-4 border-gray-600" />
-
-          <li className="flex items-center gap-2">
-            <FaVideo className="text-[#392c7d]" />
-            <span className="text-[var(--text-color)]">Video Lectures: 20</span>
+            <span className="text-[var(--text-color)]">
+              Level: Intermediate
+            </span>
           </li>
         </ul>
       </div>
@@ -193,4 +255,4 @@ function CourseInfo() {
   );
 }
 
-export default React.memo(CourseInfo);
+export default CourseInfo;
