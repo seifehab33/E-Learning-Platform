@@ -290,7 +290,11 @@
       "name_inst": "Nicole Brown",
       "job": "Instructor",
       "students": "50 Students",
-      "courses": ["UI/UX Design", "Figma Essentials", "Graphic Design"],
+      "courses": [
+        "UI/UX Design",
+        "Figma Essentials",
+        "Graphic Design"
+      ],
       "lesson": "12+ lessons",
       "hours": "9hr 30min",
       "rate": "4.0 (15)"
@@ -361,7 +365,11 @@
       "name_inst": "John Smith",
       "job": "Instructor",
       "students": "50 Students",
-      "courses": ["React Fundamentals", "Advanced React", "Next.js Mastery"],
+      "courses": [
+        "React Fundamentals",
+        "Advanced React",
+        "Next.js Mastery"
+      ],
       "lesson": "10+ lessons",
       "hours": "12hr 30min",
       "rate": "4.3 (50)"
@@ -537,7 +545,11 @@
       "name_inst": "Ryan Collins",
       "job": "Instructor",
       "students": "50 Students",
-      "courses": ["React Native", "Cross-Platform Development", "JavaScript"],
+      "courses": [
+        "React Native",
+        "Cross-Platform Development",
+        "JavaScript"
+      ],
       "lesson": "13+ lessons",
       "hours": "10hr 45min",
       "rate": "4.6 (80)"
@@ -780,7 +792,10 @@
       "img_inst": "/assets/inst1.jpg",
       "classification": "Data Science",
       "description": "Learn how to use Python for data science and machine learning in this hands-on course. Starting with basic Python programming, the course covers data manipulation with libraries like NumPy and Pandas, data visualization with Matplotlib, and building machine learning models with scikit-learn. You'll also work on real-world projects like analyzing datasets, building predictive models, and visualizing data insights. By the end of the course, you'll be ready to take on data analysis and machine learning projects.",
-      "requirements": ["Basic Python knowledge", "Interest in data science"],
+      "requirements": [
+        "Basic Python knowledge",
+        "Interest in data science"
+      ],
       "whatlearn": [
         "Manipulate and analyze data using Pandas",
         "Create visualizations using Matplotlib",
@@ -1165,6 +1180,28 @@
     }
   ],
   "Users": [
+    {
+      "id": "0",
+      "fullName": "Demo",
+      "email": "demo@email.com",
+      "password": "123456789",
+      "purchasedItems": [
+        {
+          "id": "1",
+          "price": "$120",
+          "img_course": "/assets/ui-course.jpg",
+          "course": "UI/UX Design",
+          "discount": "$99",
+          "hours": "9hr 30min",
+          "img_inst": "/assets/inst1.jpg",
+          "job": "Instructor",
+          "lesson": "12+ lessons",
+          "name_inst": "Nicole Brown",
+          "rate": "4.0",
+          "quantity": 1
+        }
+      ]
+    },
     {
       "id": "1",
       "fullName": "SeifEhab",

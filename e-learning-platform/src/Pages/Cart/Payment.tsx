@@ -59,7 +59,16 @@ const PaymentForm = () => {
         { userId, cartItems },
         {
           onSuccess: () => {
-            dispatch(confirmPayment()); // Dispatch success action
+            if (userId && localStorage.getItem("user")) {
+              const storedUser = JSON.parse(
+                localStorage.getItem("user") || "{}"
+              );
+              if (storedUser.email === "demo@email.com") {
+                alert("Demo user cannot make a payment.");
+                return;
+              }
+            }
+            dispatch(confirmPayment());
             navigate("/dashboard");
           },
           onError: (error: unknown) => {

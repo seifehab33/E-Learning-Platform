@@ -36,7 +36,20 @@ function LoginPage() {
     },
     validationSchema,
     onSubmit: (values) => {
-      signInHandler(values); // Call the sign-in handler with form values
+      const demoCredentials = {
+        email: "demo@email.com",
+        password: "demo1234",
+      };
+      if (
+        values.email === demoCredentials.email &&
+        values.password === demoCredentials.password
+      ) {
+        // Automatically sign in with demo credentials
+        signInHandler(demoCredentials);
+      } else {
+        // Proceed with the user-entered credentials
+        signInHandler(values);
+      }
     },
   });
 
@@ -63,7 +76,7 @@ function LoginPage() {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Enter Your Email"
+                placeholder="demo@email.com"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
@@ -88,7 +101,7 @@ function LoginPage() {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.password}
-                placeholder="Enter Your Password"
+                placeholder="demo123"
                 style={{ backgroundColor: "var(--main-color)" }}
                 className="p-2 rounded-md outline-none placeholder:text-sm"
               />

@@ -20,7 +20,6 @@ import { addToCart } from "../../../features/Cart/CartSlice";
 import ReactPlayer from "react-player";
 import { useNavigate } from "react-router-dom";
 
-// Memoized includes array outside of the component
 const includes = [
   { id: 1, icon: <IoMdDownload />, text: "11 hours on-demand video" },
   { id: 2, icon: <AiOutlinePlayCircle />, text: "69 downloadable resources" },
@@ -30,7 +29,6 @@ const includes = [
   { id: 6, icon: <SlGraduation />, text: "Certificate of Completion" },
 ];
 
-// Memoize discount calculation
 const calculateDiscountPercentage = (
   price: string,
   discount: string
@@ -58,6 +56,22 @@ function CourseInfo() {
   const dispatch = useDispatch<AppDispatch>();
   const [Ready, setIsReady] = useState(true);
   const navigate = useNavigate();
+  const getUserEmailFromLocalStorage = (): string | null => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      try {
+        const user = JSON.parse(storedUser);
+        return user.email || null; // Return the email or null if not found
+      } catch (error) {
+        console.error("Error parsing user data from localStorage", error);
+        return null; // Default to null on error
+      }
+    }
+    return null; // Default to null if no user is stored
+  };
+  const userEmail = getUserEmailFromLocalStorage();
+  const isDemoUser = userEmail === "demo@email.com";
+
   const handlePlayerReady = () => {
     setIsReady(false);
   };
@@ -77,7 +91,6 @@ function CourseInfo() {
   const courseId = Details?.id;
   const isPurchased = purchasedItems.some((item) => item.id === courseId);
 
-  // Memoize discount percentage calculation
   const discountPercentage = useMemo(() => {
     if (!Details?.price || !Details?.discount) return "0%";
     return calculateDiscountPercentage(Details.price, Details.discount);
@@ -128,6 +141,15 @@ function CourseInfo() {
       JSON.stringify([...cartItems, newCartItem])
     );
   }, [Details]);
+  const handleCourseAction = () => {
+    if (isDemoUser) {
+      alert("You cannot enroll or play this course as a demo user.");
+    } else if (isPurchased) {
+      handleOpenModal();
+    } else {
+      handleEnrollClick();
+    }
+  };
 
   if (isLoading) return <LoadingWrapper />;
   if (isError) return <ErrorWrapper />;
@@ -138,16 +160,18 @@ function CourseInfo() {
         <div className="w-full bg-[var(--nav-color)] px-3 max-w-3xl z-20 py-4 rounded-md text-[var(--text-color)] border border-gray-800 drop-shadow-lg shadow shadow-gray-900">
           <div className="">
             <div className="mb-4">
-              {Ready && <LoadingWrapper />}
-              <ReactPlayer
-                url={Details?.course_link}
-                alt="Course Video Thumbnail"
-                height={200}
-                width="100%"
-                controls
-                onReady={handlePlayerReady}
-                onStart={handleStart}
-              />
+              {!isDemoUser && Ready && <LoadingWrapper />}
+              {!isDemoUser && (
+                <ReactPlayer
+                  url={Details?.course_link}
+                  alt="Course Video Thumbnail"
+                  height={200}
+                  width="100%"
+                  controls
+                  onReady={handlePlayerReady}
+                  onStart={handleStart}
+                />
+              )}
             </div>
 
             <div className="flex items-center justify-between mb-4">
@@ -178,13 +202,7 @@ function CourseInfo() {
                 isPurchased ? "bg-blue-800" : "bg-green-800"
               } transition-colors cursor-pointer`}
               aria-label={isPurchased ? "Watch Course" : "Enroll Now"}
-              onClick={() => {
-                if (isPurchased) {
-                  handleOpenModal();
-                } else {
-                  handleEnrollClick();
-                }
-              }}
+              onClick={handleCourseAction}
             >
               {isPurchased ? "Watch Course" : "Enroll Now"}
             </button>
@@ -202,7 +220,7 @@ function CourseInfo() {
               <IoMdClose />
             </button>
             <ReactPlayer
-              url={Details?.course_link} // Replace with actual video URL
+              url={Details?.course_link}
               playing
               controls
               width="100%"
