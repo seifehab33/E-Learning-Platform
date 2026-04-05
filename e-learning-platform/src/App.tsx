@@ -17,6 +17,7 @@ import SignUp from "./Pages/SignUp/SignUp";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import FooterWithSocialLinks from "./components/Footer/Footer";
 import CourseDetails from "./Pages/Home/CourseDetails/CourseDetails";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const InstructorLayout = lazy(
   () => import("./Pages/Instructor/InstructorMain/InstructorLayout")
@@ -72,6 +73,7 @@ function App() {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <Router>
+          <ScrollToTop />
           <MainLayout />
         </Router>
         {process.env.NODE_ENV === "development" && <ReactQueryDevtools />}
