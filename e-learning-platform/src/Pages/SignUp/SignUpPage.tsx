@@ -173,8 +173,8 @@ function SignUpPage() {
       <div className="bg-[#5c505b] h-full justify-center flex items-center my-auto py-4">
         <p className="font-bold">
           Already have an account?{" "}
-          <Link to="/login" className="text-[var(--peach-color)]">
-            Login
+          <Link to="/signin" className="text-[var(--peach-color)]">
+            Sign In
           </Link>
         </p>
       </div>

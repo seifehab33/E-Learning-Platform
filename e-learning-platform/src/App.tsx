@@ -26,6 +26,9 @@ const Blogs = lazy(() => import("./Pages/Blogs/Blogs"));
 const SignIn = lazy(() => import("./Pages/SignIn/SignIn"));
 const Dashboard = lazy(() => import("./Pages/Dashboard/Dashboard"));
 const Cart = lazy(() => import("./Pages/Cart/Cart"));
+const AboutUs = lazy(() => import("./Pages/Company/AboutUs"));
+const Privacy = lazy(() => import("./Pages/Company/Privacy"));
+const Terms = lazy(() => import("./Pages/Company/Terms"));
 function MainLayout() {
   const location = useLocation();
   const isAuthPage =
@@ -41,6 +44,9 @@ function MainLayout() {
             <Route path="/instructor" element={<InstructorLayout />} />
             <Route path="/courses" element={<CourseLayout />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route element={<ProtectedRoute />}>

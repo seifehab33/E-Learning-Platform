@@ -32,49 +32,43 @@ const FooterWithSocialLinks: React.FC = React.memo(() => {
   const isAuthenticated = useSelector(
     (state: RootState) => state.auth.isAuthenticated
   );
-  const isStudent = true; // Adjust based on your app's role-checking logic
 
   const LINKS = useMemo((): LinkItem[] => {
     const baseLinks: LinkItem[] = [
       {
-        title: "For Student",
-        items:
-          isAuthenticated && isStudent
-            ? [
-                { name: "Home", path: "/" },
-                { name: "Dashboard", path: "/dashboard" },
-                { name: "Shopping Cart", path: "/cart" },
-                { name: "Blogs", path: "/blog" },
-              ]
-            : [
-                { name: "Profile", path: "/profile" },
-                { name: "Login", path: "/login" },
-                { name: "Register", path: "/register" },
-              ],
+        title: "Explore",
+        items: [
+          { name: "Home", path: "/" },
+          { name: "Instructor", path: "/instructor" },
+          { name: "Courses", path: "/courses" },
+          { name: "Blogs", path: "/blogs" },
+        ],
+      },
+      {
+        title: "Account",
+        items: isAuthenticated
+          ? [
+              { name: "Dashboard", path: "/dashboard" },
+              { name: "Sign In", path: "/signin" },
+              { name: "Sign Up", path: "/signup" },
+            ]
+          : [
+              { name: "Sign In", path: "/signin" },
+              { name: "Sign Up", path: "/signup" },
+            ],
       },
       {
         title: "Company",
         items: [
           { name: "About Us", path: "/about" },
           { name: "Privacy", path: "/privacy" },
-          { name: "Terms", path: "/terms" },
-          { name: "Accessibility", path: "/accessibility" },
+          { name: "Terms & Conditions", path: "/terms" },
         ],
       },
     ];
 
-    if (!isAuthenticated) {
-      baseLinks.unshift({
-        title: "For Instructor",
-        items: [
-          { name: "Profile", path: "/instructor/profile" },
-          { name: "Login", path: "/instructor/login" },
-          { name: "Register", path: "/instructor/register" },
-        ],
-      });
-    }
     return baseLinks;
-  }, [isAuthenticated, isStudent]);
+  }, [isAuthenticated]);
 
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
