@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import logo from "../../assets/logo.svg";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../Store/store";
 import { signOut } from "../../features/Auth/authSlice";
@@ -17,394 +17,306 @@ interface NavItem {
   path: string;
 }
 
-const NavList: React.FC<{ isAuthenticated: boolean }> = React.memo(
-  ({ isAuthenticated }) => {
-    const navItems: NavItem[] = isAuthenticated
-      ? [
-          { name: "Home", path: "/" },
-          { name: "Instructor", path: "/instructor" },
-          { name: "Courses", path: "/courses" },
-          { name: "Blog", path: "/blogs" },
-          { name: "Dashboard", path: "/dashboard" }, // Extra link for authenticated users
-        ]
-      : [
-          { name: "Home", path: "/" },
-          { name: "Instructor", path: "/instructor" },
-          { name: "Courses", path: "/courses" },
-          { name: "Blog", path: "/blogs" },
-        ];
+const NavList: React.FC<{
+  isAuthenticated: boolean;
+  mobile?: boolean;
+  onNavigate?: () => void;
+}> = React.memo(({ isAuthenticated, mobile = false, onNavigate }) => {
+  const navItems: NavItem[] = isAuthenticated
+    ? [
+        { name: "Home", path: "/" },
+        { name: "Instructor", path: "/instructor" },
+        { name: "Courses", path: "/courses" },
+        { name: "Blog", path: "/blogs" },
+        { name: "Dashboard", path: "/dashboard" },
+      ]
+    : [
+        { name: "Home", path: "/" },
+        { name: "Instructor", path: "/instructor" },
+        { name: "Courses", path: "/courses" },
+        { name: "Blog", path: "/blogs" },
+      ];
 
-    return (
-      <ul className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 flex flex-col lg:flex-row lg:p-1">
-        {navItems.map(({ name, path }) => (
-          <li key={name} className="flex items-center gap-2 py-2 pr-4">
-            <NavLink to={path} className="font-medium text-[17px] text-white">
-              {name}
-            </NavLink>
+  return (
+    <ul
+      className={`flex ${
+        mobile
+          ? "flex-col gap-2"
+          : "items-center rounded-full border border-white/10 bg-white/5 px-3 py-2 backdrop-blur-md"
+      }`}
+    >
+      {navItems.map(({ name, path }) => (
+        <li key={name}>
+          <NavLink
+            to={path}
+            onClick={onNavigate}
+            className={({ isActive }) =>
+              [
+                "inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
+                mobile
+                  ? "w-full border border-white/8 bg-white/[0.03] text-white hover:border-[var(--purple-color)] hover:bg-white/[0.08]"
+                  : "text-white/80 hover:bg-white/10 hover:text-white",
+                isActive
+                  ? "bg-[var(--peach-color)] text-white shadow-lg shadow-[var(--peach-color)]/25"
+                  : "",
+              ].join(" ")
+            }
+          >
+            {name}
+          </NavLink>
+        </li>
+      ))}
+    </ul>
+  );
+});
+
+const CartDropdown: React.FC<{
+  isOpen: boolean;
+  cartItems: RootState["cart"]["items"];
+  onItemClick: (id: string, price: string) => void;
+  onRemoveItem: (id: string) => void;
+  mobile?: boolean;
+}> = ({ isOpen, cartItems, onItemClick, onRemoveItem, mobile = false }) => (
+  <div
+    className={`${
+      mobile
+        ? "left-0 mt-3 w-full"
+        : "right-0 top-[calc(100%+14px)] min-w-[320px]"
+    } absolute z-20 overflow-hidden rounded-3xl border border-white/10 bg-[rgba(16,13,28,0.95)] text-[var(--text-color)] shadow-2xl shadow-black/40 backdrop-blur-xl transition-all duration-300 ${
+      isOpen
+        ? "translate-y-0 opacity-100"
+        : "pointer-events-none translate-y-2 opacity-0"
+    }`}
+  >
+    {cartItems.length > 0 ? (
+      <ul className="p-2">
+        {cartItems.map((item) => (
+          <li
+            key={item.id}
+            role="menuitem"
+            onClick={() => onItemClick(item.id, item.price)}
+            className="mb-2 flex cursor-pointer items-center gap-3 rounded-2xl border border-white/6 bg-white/[0.03] p-3 transition-all hover:bg-white/[0.07]"
+          >
+            <img
+              alt={item.course}
+              src={item.img_course}
+              className="h-14 w-14 rounded-2xl object-cover object-center"
+            />
+            <div className="min-w-0 flex-grow">
+              <p className="truncate text-sm font-semibold text-white">
+                {item.course}
+              </p>
+              <p className="mt-1 flex items-center gap-2 text-xs text-white/60">
+                <span>{item.price}</span>
+                <span className="h-1 w-1 rounded-full bg-white/30" />
+                <span>Qty {item.quantity}</span>
+              </p>
+            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onRemoveItem(item.id);
+              }}
+              className="rounded-full border border-red-400/30 px-3 py-1 text-xs font-semibold text-red-300 transition-colors hover:bg-red-400/10"
+            >
+              Remove
+            </button>
           </li>
         ))}
       </ul>
-    );
-  }
+    ) : (
+      <div className="p-5 text-center text-sm text-white/60">
+        Your cart is empty
+      </div>
+    )}
+  </div>
 );
 
 export const NavbarWithMegaMenu: React.FC = () => {
-  const [openNav, setOpenNav] = useState<boolean>(false);
-  const [scrolled, setScrolled] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState(false); // State to toggle the dropdown visibility
+  const [openNav, setOpenNav] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const isAuthenticated = useSelector(
     (state: RootState) => state.auth.isAuthenticated
   );
-
-  const handleSignOut = () => {
-    dispatch(signOut()); // Clear the user from Redux
-    navigate("/"); // Navigate to the home page
-  };
-  // Debounced resize handler
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 960) setOpenNav(false);
-    };
-
-    const debouncedResize = debounce(handleResize, 200);
-    window.addEventListener("resize", debouncedResize);
-    return () => {
-      window.removeEventListener("resize", debouncedResize);
-    };
-  }, []);
-
-  // Handle scroll event
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  // Memoized toggle function
-  const toggleNav = useCallback(() => setOpenNav((prev) => !prev), []);
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const totalCartItems = useSelector(selectTotalItemsInCart);
+
   useEffect(() => {
     const storedCartItems = localStorage.getItem("cartItems");
+    if (!storedCartItems) return;
 
-    if (storedCartItems) {
-      const parsedCartItems = JSON.parse(storedCartItems);
-
-      // Ensure parsedCartItems is not null or undefined before dispatching
-      if (Array.isArray(parsedCartItems)) {
-        dispatch(setCartItems(parsedCartItems)); // Dispatch the action to update the Redux store
-      }
+    const parsedCartItems = JSON.parse(storedCartItems);
+    if (Array.isArray(parsedCartItems)) {
+      dispatch(setCartItems(parsedCartItems));
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    setOpenNav(false);
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  const navShellClass = useMemo(
+    () => "fixed inset-x-0 top-0 z-50 px-4 pt-4 lg:px-6",
+    []
+  );
+
+  const authButtonBase =
+    "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 ease-out";
+  const loginButtonClass = `${authButtonBase} border border-white/10 bg-white/5 text-white hover:border-[var(--purple-color)] hover:bg-white/10`;
+  const signupButtonClass = `${authButtonBase} bg-[var(--peach-color)] text-white shadow-lg shadow-[var(--peach-color)]/25 hover:-translate-y-0.5 hover:bg-[#ff7d66]`;
+  const signOutButtonClass = `${authButtonBase} border border-white/10 bg-white/5 text-white hover:border-[var(--peach-color)] hover:bg-white/10`;
+  const iconButtonClass =
+    "relative inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:border-[var(--purple-color)] hover:bg-white/10";
+
+  const handleSignOut = () => {
+    dispatch(signOut());
+    navigate("/");
+  };
+
   const handleRemoveItem = (id: string) => {
     dispatch(removeFromCart(id));
   };
-  const toggleDropdown = () => {
-    setIsOpen((prev) => !prev); // Toggle the dropdown visibility
-  };
 
   const handleItemClick = (id: string, price: string) => {
-    // Navigate to the Payment page, passing the id and price via query parameters or as state
     navigate(`/cart/${id}`, { state: { price } });
   };
 
   return (
-    <nav className="max-w-full w-full px-8 py-2 rounded-none shadow-none bg-[var(--nav-color)] fixed top-0 z-50">
-      <div className="container-main flex items-center justify-between text-black ">
-        <a href="#" className="mr-4 cursor-pointer flex items-center">
-          <img src={logo} alt="Logo" className="w-36 h-10" loading="lazy" />
-        </a>
-        <div className="hidden lg:block">
-          <NavList isAuthenticated={isAuthenticated} />
-        </div>
-        <div className="hidden gap-2 lg:flex lg:items-center">
-          {isAuthenticated ? (
-            <>
-              <div className="relative">
-                {/* Cart button */}
-                <button
-                  className="relative border rounded-full p-2.5 text-center text-sm transition-all text-slate-600 hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border-solid border-[var(--purple-color)]"
-                  onClick={toggleDropdown} // Toggle dropdown on button click
-                >
-                  <FiShoppingCart className="w-6 h-6" />
-                  {totalCartItems > 0 && (
-                    <span className="absolute -top-2 -right-2 flex h-6 min-w-6 items-center justify-center rounded-full bg-[var(--peach-color)] px-1 text-xs font-bold text-white">
-                      {totalCartItems}
-                    </span>
-                  )}
-                </button>
+    <nav className={navShellClass}>
+      <div className="mx-auto max-w-[1320px]">
+        <div className="rounded-[28px] border border-white/10 bg-[rgba(20,17,34,0.82)] px-4 py-3 shadow-2xl shadow-black/25 backdrop-blur-xl lg:px-5">
+          <div className="flex items-center justify-between gap-4">
+            <Link to="/" className="flex items-center">
+              <img src={logo} alt="Logo" className="h-10 w-36" loading="lazy" />
+            </Link>
 
-                {/* Dropdown menu */}
-                <div
-                  className={`absolute z-10 top-14 left-1/2 transform -translate-x-1/2 min-w-[300px] overflow-hidden rounded-lg border border-slate-200 bg-black text-[var(--text-color)] shadow-lg focus:outline-none 
-        transition-all duration-300 ease-in-out ${
-          isOpen
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-2 pointer-events-none"
-        }`}
-                >
-                  {/* Show cart items */}
-                  {isOpen && cartItems.length > 0 && (
-                    <ul>
-                      {cartItems.map((item, index) => (
-                        <React.Fragment key={item.id}>
-                          <li
-                            role="menuitem"
-                            className="cursor-pointer text-slate-800 flex items-center w-full text-sm rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-200 active:bg-slate-300"
-                            onClick={() => handleItemClick(item.id, item.price)} // Handle click
-                          >
-                            <img
-                              alt={item.course}
-                              src={item.img_course}
-                              className="relative inline-block h-12 w-12 rounded-full object-cover object-center"
-                            />
-                            <div className="flex flex-col gap-1 ml-4 flex-grow text-nowrap">
-                              <p className="text-slate-800 text-[10px] font-medium ">
-                                {item.course}
-                              </p>
-                              <p className="text-slate-500 text-sm flex items-center justify-between">
-                                <span>{item.price}</span>
-                                <span>X{item.quantity}</span>
-                              </p>
-                            </div>
-                            <div>
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation(); // Prevent triggering onClick of li
-                                  handleRemoveItem(item.id);
-                                }}
-                                className=" ml-1 text-red-500 hover:text-red-700 focus:outline-none transition-colors"
-                              >
-                                <span className="text-sm font-medium">
-                                  Remove
-                                </span>
-                              </button>
-                            </div>
-                          </li>
+            <div className="hidden lg:block">
+              <NavList isAuthenticated={isAuthenticated} />
+            </div>
 
-                          {/* Add separation between items */}
-                          {index < cartItems.length - 1 && (
-                            <hr className="border-t border-gray-700" />
-                          )}
-                        </React.Fragment>
-                      ))}
-                    </ul>
-                  )}
+            <div className="hidden items-center gap-3 lg:flex">
+              {isAuthenticated ? (
+                <>
+                  <div className="relative">
+                    <button
+                      className={iconButtonClass}
+                      onClick={() => setIsOpen((prev) => !prev)}
+                    >
+                      <FiShoppingCart className="h-5 w-5" />
+                      {totalCartItems > 0 && (
+                        <span className="absolute -right-1 -top-1 flex h-6 min-w-6 items-center justify-center rounded-full bg-[var(--peach-color)] px-1 text-xs font-bold text-white">
+                          {totalCartItems}
+                        </span>
+                      )}
+                    </button>
+                    <CartDropdown
+                      isOpen={isOpen}
+                      cartItems={cartItems}
+                      onItemClick={handleItemClick}
+                      onRemoveItem={handleRemoveItem}
+                    />
+                  </div>
+                  <button className={signOutButtonClass} onClick={handleSignOut}>
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/signin" className={loginButtonClass}>
+                    Log In
+                  </Link>
+                  <Link to="/signup" className={signupButtonClass}>
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
 
-                  {/* Show message when cart is empty */}
-                  {cartItems.length === 0 && (
-                    <div className="p-3 text-center text-slate-600">
-                      Your cart is empty
+            <button
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all hover:bg-white/10 lg:hidden"
+              onClick={() => setOpenNav((prev) => !prev)}
+            >
+              {openNav ? (
+                <XMarkIcon className="h-6 w-6" />
+              ) : (
+                <Bars3Icon className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+
+          <div
+            className={`overflow-hidden transition-all duration-300 lg:hidden ${
+              openNav ? "max-h-[520px] pt-4 opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="rounded-[26px] border border-white/8 bg-[rgba(255,255,255,0.03)] p-4">
+              <NavList
+                isAuthenticated={isAuthenticated}
+                mobile
+                onNavigate={() => setOpenNav(false)}
+              />
+
+              <div className="mt-4 flex flex-col gap-3">
+                {isAuthenticated ? (
+                  <>
+                    <div className="relative">
+                      <button
+                        className={`${iconButtonClass} w-full justify-center gap-2`}
+                        onClick={() => setIsOpen((prev) => !prev)}
+                      >
+                        <FiShoppingCart className="h-5 w-5" />
+                        <span>Cart</span>
+                        {totalCartItems > 0 && (
+                          <span className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-[var(--peach-color)] px-2 py-1 text-xs font-bold text-white">
+                            {totalCartItems}
+                          </span>
+                        )}
+                      </button>
+                      <CartDropdown
+                        isOpen={isOpen}
+                        cartItems={cartItems}
+                        onItemClick={handleItemClick}
+                        onRemoveItem={handleRemoveItem}
+                        mobile
+                      />
                     </div>
-                  )}
-                </div>
+                    <button
+                      className={signOutButtonClass}
+                      onClick={handleSignOut}
+                    >
+                      Sign Out
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      to="/signin"
+                      className={loginButtonClass}
+                      onClick={() => setOpenNav(false)}
+                    >
+                      Log In
+                    </Link>
+                    <Link
+                      to="/signup"
+                      className={signupButtonClass}
+                      onClick={() => setOpenNav(false)}
+                    >
+                      Sign Up
+                    </Link>
+                  </>
+                )}
               </div>
-              <div>
-                <button
-                  className={`w-28 h-16 rounded-full ${
-                    scrolled
-                      ? "bg-[var(--peach-color)] text-white" // Change background when scrolled
-                      : "bg-[var(--secondary-color)] text-black"
-                  } hover:bg-[var(--peach-color)] hover:text-white transition-colors duration-300 ease-in-out text-[14px] font-semibold`}
-                  onClick={handleSignOut}
-                >
-                  {" "}
-                  Sign Out
-                </button>
-              </div>
-            </>
-          ) : (
-            <>
-              <Link to="/signin">
-                <button
-                  className={`w-28 h-16 rounded-full ${
-                    scrolled
-                      ? "bg-[var(--peach-color)] text-white" // Change background when scrolled
-                      : "bg-[var(--secondary-color)] text-black"
-                  } hover:bg-[var(--peach-color)] hover:text-white transition-colors duration-300 ease-in-out text-[14px] font-semibold`}
-                >
-                  Log In
-                </button>
-              </Link>
-              <Link to="/signup">
-                <button className="w-28 h-16 rounded-full border-[5px] text-white border-[var(--purple-color)] hover:border-none hover:bg-[var(--peach-color)] hover:text-gray-600 transition-colors duration-300 ease-in-out text-[14px]">
-                  {" "}
-                  Sign Up
-                </button>
-              </Link>
-            </>
-          )}
-        </div>
-        <button
-          className="lg:hidden flex items-center justify-center h-12 w-12"
-          onClick={toggleNav}
-        >
-          {openNav ? (
-            <XMarkIcon className="h-6 w-6 text-white" />
-          ) : (
-            <Bars3Icon className="h-6 w-6 text-white" />
-          )}
-        </button>
-      </div>
-      <div
-        className={`transition-all  duration-300 ease-in-out ${
-          openNav ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden`}
-      >
-        <NavList isAuthenticated={isAuthenticated} />
-        <div className="flex w-full flex-nowrap   items-center gap-2 lg:hidden">
-          {isAuthenticated ? (
-            <>
-              <div className="">
-                {/* Cart button */}
-                <button
-                  className="relative border rounded-full p-2.5 text-center text-sm transition-all text-slate-600 hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border-solid border-[var(--purple-color)]"
-                  onClick={toggleDropdown} // Toggle dropdown on button click
-                >
-                  <FiShoppingCart className="w-6 h-6" />
-                  {totalCartItems > 0 && (
-                    <span className="absolute -top-2 -right-2 flex h-6 min-w-6 items-center justify-center rounded-full bg-[var(--peach-color)] px-1 text-xs font-bold text-white">
-                      {totalCartItems}
-                    </span>
-                  )}
-                </button>
-
-                {/* Dropdown menu */}
-                <div
-                  className={`absolute z-10  left-48 transform -translate-x-1/2 max-w-[350px] w-full overflow-hidden rounded-lg border border-slate-200 bg-black text-[var(--text-color)] shadow-lg focus:outline-none 
-                     transition-all duration-300 ease-in-out ${
-                       isOpen
-                         ? "opacity-100 translate-y-0"
-                         : "opacity-0 translate-y-2 pointer-events-none"
-                     }`}
-                >
-                  {/* Show cart items */}
-                  {isOpen && cartItems.length > 0 && (
-                    <ul>
-                      {cartItems.map((item, index) => (
-                        <React.Fragment key={item.id}>
-                          <li
-                            role="menuitem"
-                            className="cursor-pointer text-slate-800 flex items-center w-full text-sm rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-200 active:bg-slate-300"
-                            onClick={() => handleItemClick(item.id, item.price)} // Handle click
-                          >
-                            <img
-                              alt={item.course}
-                              src={item.img_course}
-                              className="relative inline-block h-12 w-12 rounded-full object-cover object-center"
-                            />
-                            <div className="flex flex-col gap-1 ml-4 flex-grow text-nowrap">
-                              <p className="text-slate-800 text-sm font-medium ">
-                                {item.course}
-                              </p>
-                              <p className="text-slate-500 text-sm flex items-center">
-                                {item.price}
-                              </p>
-                            </div>
-                            <div>
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation(); // Prevent triggering onClick of li
-                                  handleRemoveItem(item.id);
-                                }}
-                                className=" ml-1 text-red-500 hover:text-red-700 focus:outline-none transition-colors"
-                              >
-                                <span className="text-sm font-medium">
-                                  Remove
-                                </span>
-                              </button>
-                            </div>
-                          </li>
-
-                          {/* Add separation between items */}
-                          {index < cartItems.length - 1 && (
-                            <hr className="border-t border-gray-700" />
-                          )}
-                        </React.Fragment>
-                      ))}
-                    </ul>
-                  )}
-
-                  {/* Show message when cart is empty */}
-                  {isOpen &&
-                    cartItems.length === 0 &&
-                    location.pathname === "/" && (
-                      <div className="p-3 text-center text-slate-600">
-                        Your cart is empty
-                      </div>
-                    )}
-
-                  {isOpen &&
-                    cartItems.length === 0 &&
-                    location.pathname !== "/" && (
-                      <div className="p-3 text-center text-slate-600">
-                        Your cart is empty, redirecting to home...
-                      </div>
-                    )}
-                </div>
-              </div>
-              <div>
-                <button
-                  className={`w-28 h-16 rounded-full ${
-                    scrolled
-                      ? "bg-[var(--peach-color)] text-white" // Change background when scrolled
-                      : "bg-[var(--secondary-color)] text-black"
-                  } hover:bg-[var(--peach-color)] hover:text-white transition-colors duration-300 ease-in-out text-[14px] font-semibold`}
-                  onClick={handleSignOut}
-                >
-                  {" "}
-                  Sign Out
-                </button>
-              </div>
-            </>
-          ) : (
-            <>
-              <Link to="/signin">
-                <button
-                  className={`w-28 h-16 rounded-full ${
-                    scrolled
-                      ? "bg-[var(--peach-color)] text-white" // Change background when scrolled
-                      : "bg-[var(--secondary-color)] text-black"
-                  } hover:bg-[var(--peach-color)] hover:text-white transition-colors duration-300 ease-in-out text-[14px] font-semibold`}
-                >
-                  Log In
-                </button>
-              </Link>
-              <Link to="/signup">
-                <button className="w-28 h-16 rounded-full border-[5px] text-white border-[var(--purple-color)] hover:border-none hover:bg-[var(--peach-color)] hover:text-gray-600 transition-colors duration-300 ease-in-out text-[14px]">
-                  {" "}
-                  Sign Up
-                </button>
-              </Link>
-            </>
-          )}
+            </div>
+          </div>
         </div>
       </div>
     </nav>
   );
 };
 
-// Debounce function with TypeScript support
-function debounce<T extends (...args: unknown[]) => void>(
-  func: T,
-  wait: number
-) {
-  let timeout: ReturnType<typeof setTimeout>;
-
-  return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), wait);
-  };
-}
+export default NavbarWithMegaMenu;
