@@ -1,10 +1,11 @@
 import { useMutation } from "react-query";
 import axios from "axios";
 import { Course } from "../../features/Cart/CartSlice";
+import { apiUrl } from "../../lib/api";
 
 // Define the mutation logic
 const confirmPaymentRequest = async (userId: string, cartItems: Course[]) => {
-  const response = await axios.get(`http://localhost:4000/Users/${userId}`);
+  const response = await axios.get(apiUrl(`/Users/${userId}`));
   const updatedUser = {
     ...response.data,
     purchasedItems: [
@@ -23,7 +24,7 @@ const confirmPaymentRequest = async (userId: string, cartItems: Course[]) => {
   };
 
   // Update user data with cart items
-  return axios.put(`http://localhost:4000/Users/${userId}`, updatedUser);
+  return axios.put(apiUrl(`/Users/${userId}`), updatedUser);
 };
 
 // Create a custom hook

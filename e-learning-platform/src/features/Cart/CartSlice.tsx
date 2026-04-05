@@ -72,15 +72,30 @@ const saveCartToLocalStorage = (items: Course[]) => {
 };
 
 // Helper function to calculate price
+const parseMoneyValue = (value?: string): number => {
+  if (!value) return 0;
+  return parseFloat(value.replace(/[$,%\s]/g, "").replace(/,/g, "")) || 0;
+};
+
 const calculatePrice = (
-  price: string,
-  quantity: number,
-  discount: string
+  price?: string,
+  quantity = 1,
+  discount?: string
 ): string => {
-  const priceNum = parseFloat(price.replace("$", "").replace(",", "")) || 0;
-  const discountNum = parseFloat(discount.replace("%", "")) || 0;
-  const discountedPrice = priceNum - priceNum * (discountNum / 100);
-  return (discountedPrice * quantity).toFixed(2); // Return price formatted to 2 decimal places
+  const basePrice = parseMoneyValue(price);
+  const safeQuantity = Number.isFinite(quantity) && quantity > 0 ? quantity : 1;
+
+  let unitPrice = basePrice;
+
+  if (discount?.includes("$")) {
+    // In this dataset, discount often stores the final discounted price.
+    unitPrice = parseMoneyValue(discount) || basePrice;
+  } else if (discount?.includes("%")) {
+    const discountPercent = parseMoneyValue(discount);
+    unitPrice = basePrice - basePrice * (discountPercent / 100);
+  }
+
+  return (unitPrice * safeQuantity).toFixed(2);
 };
 
 // Define the initial state of the cart

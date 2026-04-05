@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import { apiUrl } from "../../../lib/api";
 interface BlogsState {
   id: string;
   img: string;
@@ -8,7 +9,7 @@ interface BlogsState {
   date: string;
 }
 const fetchBlogs = async () => {
-  const response = await axios.get<BlogsState[]>("http://localhost:4000/Blogs");
+  const response = await axios.get<BlogsState[]>(apiUrl("/Blogs"));
 
   return response.data;
 };

@@ -6,7 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../Store/store";
 import { signOut } from "../../features/Auth/authSlice";
 import { FiShoppingCart } from "react-icons/fi";
-import { removeFromCart, setCartItems } from "../../features/Cart/CartSlice";
+import {
+  removeFromCart,
+  selectTotalItemsInCart,
+  setCartItems,
+} from "../../features/Cart/CartSlice";
 
 interface NavItem {
   name: string;
@@ -91,6 +95,7 @@ export const NavbarWithMegaMenu: React.FC = () => {
   // Memoized toggle function
   const toggleNav = useCallback(() => setOpenNav((prev) => !prev), []);
   const cartItems = useSelector((state: RootState) => state.cart.items);
+  const totalCartItems = useSelector(selectTotalItemsInCart);
   useEffect(() => {
     const storedCartItems = localStorage.getItem("cartItems");
 
@@ -130,10 +135,15 @@ export const NavbarWithMegaMenu: React.FC = () => {
               <div className="relative">
                 {/* Cart button */}
                 <button
-                  className="border rounded-full p-2.5 text-center text-sm transition-all text-slate-600 hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border-solid border-[var(--purple-color)]"
+                  className="relative border rounded-full p-2.5 text-center text-sm transition-all text-slate-600 hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border-solid border-[var(--purple-color)]"
                   onClick={toggleDropdown} // Toggle dropdown on button click
                 >
                   <FiShoppingCart className="w-6 h-6" />
+                  {totalCartItems > 0 && (
+                    <span className="absolute -top-2 -right-2 flex h-6 min-w-6 items-center justify-center rounded-full bg-[var(--peach-color)] px-1 text-xs font-bold text-white">
+                      {totalCartItems}
+                    </span>
+                  )}
                 </button>
 
                 {/* Dropdown menu */}
@@ -260,10 +270,15 @@ export const NavbarWithMegaMenu: React.FC = () => {
               <div className="">
                 {/* Cart button */}
                 <button
-                  className="border rounded-full p-2.5 text-center text-sm transition-all text-slate-600 hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border-solid border-[var(--purple-color)]"
+                  className="relative border rounded-full p-2.5 text-center text-sm transition-all text-slate-600 hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none border-solid border-[var(--purple-color)]"
                   onClick={toggleDropdown} // Toggle dropdown on button click
                 >
                   <FiShoppingCart className="w-6 h-6" />
+                  {totalCartItems > 0 && (
+                    <span className="absolute -top-2 -right-2 flex h-6 min-w-6 items-center justify-center rounded-full bg-[var(--peach-color)] px-1 text-xs font-bold text-white">
+                      {totalCartItems}
+                    </span>
+                  )}
                 </button>
 
                 {/* Dropdown menu */}

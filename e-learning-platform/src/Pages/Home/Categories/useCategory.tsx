@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import { apiUrl } from "../../../lib/api";
 
 interface CategoryState {
   id: string;
@@ -9,9 +10,7 @@ interface CategoryState {
 }
 
 const fetchCategories = async (): Promise<CategoryState[]> => {
-  const response = await axios.get<CategoryState[]>(
-    "http://localhost:4000/categories"
-  );
+  const response = await axios.get<CategoryState[]>(apiUrl("/categories"));
   return response.data; // Return the data directly from the response
 };
 

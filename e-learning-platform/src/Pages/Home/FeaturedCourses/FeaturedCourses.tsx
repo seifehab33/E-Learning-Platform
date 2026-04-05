@@ -14,8 +14,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../features/Cart/CartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  selectTotalItemsInCart,
+} from "../../../features/Cart/CartSlice";
 import {
   Dialog,
   DialogHeader,
@@ -24,6 +27,7 @@ import {
 } from "@material-tailwind/react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { RootState } from "../../../Store/store";
 interface CourseGridProps {
   courses: Course[];
   courseIds?: string[]; // List of course IDs to display (e.g., from the cart slice)
@@ -181,6 +185,8 @@ const CourseCard: React.FC<{
   const dispatch = useDispatch();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [dialogMessage, setDialogMessage] = useState("");
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const totalCartItems = useSelector(selectTotalItemsInCart);
 
   const location = useLocation(); // Get the current location
 
@@ -190,7 +196,6 @@ const CourseCard: React.FC<{
   // If no user is logged in, show the login prompt dialog
 
   const handleBuyNow = () => {
-    const cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
     if (!user) {
       setDialogMessage("Please Login");
       setIsDialogOpen(true);
@@ -219,11 +224,6 @@ const CourseCard: React.FC<{
       };
 
       dispatch(addToCart(newCartItem));
-
-      localStorage.setItem(
-        "cartItems",
-        JSON.stringify([...cartItems, newCartItem])
-      );
     }
   };
 
@@ -341,7 +341,14 @@ const CourseCard: React.FC<{
               </span>
             </div>
             {!isDashboard && (
-              <Button buttonText="Buy Now" onClick={handleBuyNow} />
+              <Button
+                buttonText={
+                  cartItems.some((item) => item.id === course.id)
+                    ? "Added to Cart"
+                    : "Buy Now"
+                }
+                onClick={handleBuyNow}
+              />
             )}{" "}
           </div>
         </div>
@@ -379,7 +386,14 @@ const CourseCard: React.FC<{
             onPointerEnterCapture=""
             onPointerLeaveCapture=""
           >
-            <Button buttonText="Close" onClick={handleDialogToggle}></Button>
+            <div className="flex items-center gap-3">
+              {totalCartItems > 0 && (
+                <span className="text-sm text-[var(--text-color)]">
+                  Cart items: {totalCartItems}
+                </span>
+              )}
+              <Button buttonText="Close" onClick={handleDialogToggle}></Button>
+            </div>
           </DialogFooter>
         </Dialog>
       </div>

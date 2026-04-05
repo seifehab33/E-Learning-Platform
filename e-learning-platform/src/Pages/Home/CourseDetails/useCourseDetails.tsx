@@ -2,9 +2,10 @@ import axios from "axios";
 import { Course } from "../../../features/Cart/CartSlice";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
+import { apiUrl } from "../../../lib/api";
 
 export const fetchCourseDetails = async (courseId: string): Promise<Course> => {
-  const response = await axios.get(`http://localhost:4000/Courses/${courseId}`);
+  const response = await axios.get(apiUrl(`/Courses/${courseId}`));
   return response.data;
 };
 function useCourseDetails() {

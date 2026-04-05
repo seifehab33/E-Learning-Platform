@@ -1,4 +1,5 @@
 import axios from "axios";
+import { apiUrl } from "../lib/api";
 
 interface Credentials {
   email: string;
@@ -9,13 +10,11 @@ interface AuthUser {
   email: string;
   fullName: string;
 }
-const BASE_URL = "http://localhost:4000";
-
 // Function to check login credentials
 export const signIn = async (credentials: Credentials): Promise<AuthUser> => {
   try {
     const usersResponse = await axios.get(
-      `${BASE_URL}/Users?email=${credentials.email}`
+      apiUrl(`/Users?email=${credentials.email}`)
     );
 
     // Log the response to ensure data is returned correctly

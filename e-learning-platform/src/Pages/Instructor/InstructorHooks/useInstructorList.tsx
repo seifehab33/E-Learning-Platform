@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import { apiUrl } from "../../../lib/api";
 
 interface InstructorListState {
   id: string;
@@ -13,9 +14,7 @@ interface InstructorListState {
   students: string;
 }
 const fetchInstList = async () => {
-  const response = await axios.get<InstructorListState[]>(
-    "http://localhost:4000/Avaliable_Inst"
-  );
+  const response = await axios.get<InstructorListState[]>(apiUrl("/Avaliable_Inst"));
   return response.data;
 };
 

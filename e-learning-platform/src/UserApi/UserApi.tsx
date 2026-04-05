@@ -1,4 +1,5 @@
 import axios from "axios";
+import { apiUrl } from "../lib/api";
 
 interface Credentials {
   email: string;
@@ -6,13 +7,11 @@ interface Credentials {
   fullName: string; // Added fullName for sign-up
 }
 
-const BASE_URL = "http://localhost:4000";
-
 // Function to sign up a new user
 export const signUp = async (credentials: Credentials) => {
   try {
     // Send a POST request to create a new user
-    const response = await axios.post(`${BASE_URL}/Users`, credentials);
+    const response = await axios.post(apiUrl("/Users"), credentials);
 
     // Log the response to ensure the user is created correctly
     console.log("User created:", response);

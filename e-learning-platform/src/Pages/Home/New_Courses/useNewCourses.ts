@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import { apiUrl } from "../../../lib/api";
 
 const fetchNewCourses = async () => {
-  const response = await axios.get("http://localhost:4000/new_courses");
+  const response = await axios.get(apiUrl("/new_courses"));
   return response.data;
 };
 

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
+import { apiUrl } from "../../lib/api";
 
 // Define the TypeScript type for the blog data
 interface Blog {
@@ -13,7 +14,7 @@ interface Blog {
 }
 
 const fetchBlogs = async (): Promise<Blog[]> => {
-  const response = await axios.get("http://localhost:4000/blogs_news");
+  const response = await axios.get(apiUrl("/blogs_news"));
   return response.data;
 };
 
@@ -32,7 +33,7 @@ function useBlogs() {
       onSuccess: (data) => {
         data.forEach((blog) => {
           queryClient.prefetchQuery(["blog", blog.id], () =>
-            axios.get(`http://localhost:4000/blogs_news/${blog.id}`)
+            axios.get(apiUrl(`/blogs_news/${blog.id}`))
           );
         });
       },

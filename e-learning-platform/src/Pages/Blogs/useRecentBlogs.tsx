@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
+import { apiUrl } from "../../lib/api";
 
 interface RecentBlogs {
   id: string;
@@ -9,7 +10,7 @@ interface RecentBlogs {
 }
 
 const fetchBlogs = async (): Promise<RecentBlogs[]> => {
-  const response = await axios.get("http://localhost:4000/RecentBlogs");
+  const response = await axios.get(apiUrl("/RecentBlogs"));
   return response.data;
 };
 
@@ -24,9 +25,7 @@ function useRecentBlogs() {
       data.forEach((blog) => {
         queryClient.prefetchQuery(["recent-blog", blog.id], async () => {
           try {
-            const response = await axios.get(
-              `http://localhost:4000/RecentBlogs/${blog.id}`
-            );
+            const response = await axios.get(apiUrl(`/RecentBlogs/${blog.id}`));
             return response.data;
           } catch (error) {
             console.error(`Error prefetching blog ${blog.id}:`, error);

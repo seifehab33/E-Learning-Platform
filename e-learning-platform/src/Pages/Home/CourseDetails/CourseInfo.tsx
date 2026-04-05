@@ -5,7 +5,7 @@ import {
   LoadingWrapper,
 } from "../FeaturedCourses/FeaturedCourses";
 import useCourseDetails from "./useCourseDetails";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import { IoMdClose, IoMdDownload } from "react-icons/io";
 import { AiOutlinePlayCircle } from "react-icons/ai";
 import { FaCloudDownloadAlt, FaKey } from "react-icons/fa";
@@ -15,8 +15,11 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { BiTimeFive, BiBookAlt, BiBarChart } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPurchasedItems } from "../../../features/Cart/PurchasedSlice";
-import { AppDispatch } from "../../../Store/store";
-import { addToCart } from "../../../features/Cart/CartSlice";
+import { AppDispatch, RootState } from "../../../Store/store";
+import {
+  addToCart,
+  selectTotalItemsInCart,
+} from "../../../features/Cart/CartSlice";
 import ReactPlayer from "react-player";
 import { useNavigate } from "react-router-dom";
 
@@ -53,6 +56,8 @@ function CourseInfo() {
   const { Details, isLoading, isError } = useCourseDetails();
   const [isModalOpen, setModalOpen] = useState(false);
   const purchasedItems = useSelector(selectPurchasedItems);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const totalCartItems = useSelector(selectTotalItemsInCart);
   const dispatch = useDispatch<AppDispatch>();
   const [Ready, setIsReady] = useState(true);
   const navigate = useNavigate();
@@ -90,6 +95,7 @@ function CourseInfo() {
 
   const courseId = Details?.id;
   const isPurchased = purchasedItems.some((item) => item.id === courseId);
+  const isAlreadyInCart = cartItems.some((item) => item.id === courseId);
 
   const discountPercentage = useMemo(() => {
     if (!Details?.price || !Details?.discount) return "0%";
@@ -98,6 +104,11 @@ function CourseInfo() {
 
   const handleEnrollClick = () => {
     if (!Details) return;
+
+    if (isAlreadyInCart) {
+      navigate(`/cart/${Details.id}`);
+      return;
+    }
 
     const newCartItem = {
       id: Details?.id ?? "",
@@ -115,32 +126,8 @@ function CourseInfo() {
     };
 
     dispatch(addToCart(newCartItem));
-    navigate("/cart/:id");
+    navigate(`/cart/${Details.id}`);
   };
-
-  // Effect to update localStorage only when the cart changes
-  useEffect(() => {
-    const cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
-    const newCartItem = {
-      id: Details?.id ?? "",
-      price: Details?.price ?? "0",
-      img_course: Details?.img_course ?? "",
-      course: Details?.course ?? "",
-      discount: Details?.discount ?? "0",
-      hours: Details?.hours ?? "0",
-      img_inst: Details?.img_inst ?? "",
-      job: Details?.job ?? "",
-      lesson: Details?.lesson ?? "",
-      name_inst: Details?.name_inst ?? "",
-      rate: Details?.rate ?? "0",
-      quantity: 1,
-    };
-
-    localStorage.setItem(
-      "cartItems",
-      JSON.stringify([...cartItems, newCartItem])
-    );
-  }, [Details]);
   const handleCourseAction = () => {
     if (isDemoUser) {
       alert("You cannot enroll or play this course as a demo user.");
@@ -206,6 +193,11 @@ function CourseInfo() {
             >
               {isPurchased ? "Watch Course" : "Enroll Now"}
             </button>
+            {!isPurchased && totalCartItems > 0 && (
+              <p className="mt-3 text-center text-sm text-gray-300">
+                Cart items: {totalCartItems}
+              </p>
+            )}
           </div>
         </div>
       </div>
