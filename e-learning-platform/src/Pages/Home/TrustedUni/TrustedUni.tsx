@@ -3,12 +3,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { useInView, motion } from "framer-motion";
 
 function TrustedUni() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
+  const trustedSlides = useMemo(
+    () =>
+      TrustedData.length < 12 ? [...TrustedData, ...TrustedData] : TrustedData,
+    []
+  );
 
   return (
     <motion.section
@@ -34,7 +39,7 @@ function TrustedUni() {
             delay: 2000,
             disableOnInteraction: false,
           }}
-          loop={true}
+          loop={trustedSlides.length > 6}
           modules={[Autoplay]}
           className=" mt-20"
           breakpoints={{
@@ -52,8 +57,8 @@ function TrustedUni() {
             },
           }}
         >
-          {TrustedData.map((trust) => (
-            <SwiperSlide key={trust.id}>
+          {trustedSlides.map((trust, index) => (
+            <SwiperSlide key={`${trust.id}-${index}`}>
               <img
                 src={trust.img}
                 alt=""
