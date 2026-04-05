@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import { apiUrl } from "../../../lib/api";
+import { ensureArray } from "../../../lib/arrayResponse";
 interface BlogsState {
   id: string;
   img: string;
@@ -11,7 +12,7 @@ interface BlogsState {
 const fetchBlogs = async () => {
   const response = await axios.get<BlogsState[]>(apiUrl("/Blogs"));
 
-  return response.data;
+  return ensureArray<BlogsState>(response.data);
 };
 
 function useBlogs() {

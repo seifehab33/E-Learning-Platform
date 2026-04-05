@@ -2,10 +2,11 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { CourseState } from "./TypesCourse";
 import { apiUrl } from "../../../lib/api";
+import { ensureArray } from "../../../lib/arrayResponse";
 
 const fetchCourses = async () => {
   const { data } = await axios<CourseState[]>(apiUrl("/Courses"));
-  return data;
+  return ensureArray<CourseState>(data);
 };
 
 function CourseApiHook() {

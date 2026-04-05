@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import { apiUrl } from "../../../lib/api";
+import { ensureArray } from "../../../lib/arrayResponse";
 interface FeaturedCourseState {
   id: string;
   img_inst: string;
@@ -17,7 +18,7 @@ interface FeaturedCourseState {
 
 const fetchFeaturedCourses = async () => {
   const response = await axios.get<FeaturedCourseState[]>(apiUrl("/FeaturedCourses"));
-  return response.data;
+  return ensureArray<FeaturedCourseState>(response.data);
 };
 function useFeaturedCourses() {
   const { data, isLoading, isError, refetch } = useQuery(

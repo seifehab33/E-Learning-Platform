@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import { apiUrl } from "../../../lib/api";
+import { ensureArray } from "../../../lib/arrayResponse";
 
 interface InstructorListState {
   id: string;
@@ -15,7 +16,7 @@ interface InstructorListState {
 }
 const fetchInstList = async () => {
   const response = await axios.get<InstructorListState[]>(apiUrl("/Avaliable_Inst"));
-  return response.data;
+  return ensureArray<InstructorListState>(response.data);
 };
 
 function useInstructorList() {

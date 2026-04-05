@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import { apiUrl } from "../../../lib/api";
+import { ensureArray } from "../../../lib/arrayResponse";
 interface FeaturedInstState {
   id: string;
   name_inst: string;
@@ -10,7 +11,7 @@ interface FeaturedInstState {
 }
 const fetchFeaturedInstructor = async () => {
   const response = await axios.get<FeaturedInstState[]>(apiUrl("/Featured_Inst"));
-  return response.data;
+  return ensureArray<FeaturedInstState>(response.data);
 };
 
 function UseFeaturedInstructor() {

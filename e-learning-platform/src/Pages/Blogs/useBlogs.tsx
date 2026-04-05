@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
 import { apiUrl } from "../../lib/api";
+import { ensureArray } from "../../lib/arrayResponse";
 
 // Define the TypeScript type for the blog data
 interface Blog {
@@ -15,7 +16,7 @@ interface Blog {
 
 const fetchBlogs = async (): Promise<Blog[]> => {
   const response = await axios.get(apiUrl("/blogs_news"));
-  return response.data;
+  return ensureArray<Blog>(response.data);
 };
 
 function useBlogs() {
@@ -31,7 +32,7 @@ function useBlogs() {
       refetchOnWindowFocus: false,
       keepPreviousData: true,
       onSuccess: (data) => {
-        data.forEach((blog) => {
+        ensureArray<Blog>(data).forEach((blog) => {
           queryClient.prefetchQuery(["blog", blog.id], () =>
             axios.get(apiUrl(`/blogs_news/${blog.id}`))
           );

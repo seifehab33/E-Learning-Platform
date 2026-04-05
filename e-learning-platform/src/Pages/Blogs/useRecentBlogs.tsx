@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
 import { apiUrl } from "../../lib/api";
+import { ensureArray } from "../../lib/arrayResponse";
 
 interface RecentBlogs {
   id: string;
@@ -11,7 +12,7 @@ interface RecentBlogs {
 
 const fetchBlogs = async (): Promise<RecentBlogs[]> => {
   const response = await axios.get(apiUrl("/RecentBlogs"));
-  return response.data;
+  return ensureArray<RecentBlogs>(response.data);
 };
 
 function useRecentBlogs() {
@@ -22,7 +23,7 @@ function useRecentBlogs() {
     retry: 2,
     onSuccess: (data) => {
       // Prefetch each blog only if it hasn't already been fetched
-      data.forEach((blog) => {
+      ensureArray<RecentBlogs>(data).forEach((blog) => {
         queryClient.prefetchQuery(["recent-blog", blog.id], async () => {
           try {
             const response = await axios.get(apiUrl(`/RecentBlogs/${blog.id}`));
