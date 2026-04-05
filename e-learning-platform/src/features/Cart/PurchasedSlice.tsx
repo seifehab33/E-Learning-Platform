@@ -7,8 +7,21 @@ interface PurchasedState {
   items: Course[];
 }
 
+const loadPurchasedItemsFromLocalStorage = (): Course[] => {
+  const storedPurchasedItems = localStorage.getItem("purchasedItems");
+
+  try {
+    const parsedItems = storedPurchasedItems
+      ? JSON.parse(storedPurchasedItems)
+      : [];
+    return Array.isArray(parsedItems) ? parsedItems : [];
+  } catch {
+    return [];
+  }
+};
+
 const initialState: PurchasedState = {
-  items: [], // Start with an empty array
+  items: loadPurchasedItemsFromLocalStorage(),
 };
 
 const purchasedSlice = createSlice({

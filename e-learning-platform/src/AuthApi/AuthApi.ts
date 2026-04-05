@@ -1,5 +1,4 @@
-import axios from "axios";
-import { apiUrl } from "../lib/api";
+import { loginDemoUser } from "../lib/demoUserStore";
 
 interface Credentials {
   email: string;
@@ -13,37 +12,11 @@ interface AuthUser {
 // Function to check login credentials
 export const signIn = async (credentials: Credentials): Promise<AuthUser> => {
   try {
-    const usersResponse = await axios.get(
-      apiUrl(`/Users?email=${credentials.email}`)
-    );
-
-    // Log the response to ensure data is returned correctly
-    console.log("Users response:", usersResponse);
-
-    if (usersResponse.data.length === 0) {
-      throw new Error("Invalid email or password");
-    }
-
-    const user = usersResponse.data[0];
-
-    // Validate password
-    if (user.password !== credentials.password) {
-      throw new Error("Invalid email or password");
-    }
-
-    return { id: user.id, fullName: user.fullName, email: user.email };
+    return loginDemoUser(credentials);
   } catch (error) {
     console.error("Error in signIn:", error); // Log the error for debugging
-
-    if (axios.isAxiosError(error)) {
-      if (error.response) {
-        throw new Error(
-          error.response?.data?.message || "Login failed. Please try again."
-        );
-      } else if (error.request) {
-        throw new Error("Network error. Please check your connection.");
-      }
-    }
-    throw new Error("Invalid email or password");
+    throw new Error(
+      error instanceof Error ? error.message : "Invalid email or password"
+    );
   }
 };

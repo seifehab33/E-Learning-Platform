@@ -1,14 +1,12 @@
 import { useQuery } from "react-query";
 import { useDispatch } from "react-redux";
-import axios from "axios";
 import { Course } from "../../features/Cart/CartSlice";
 import { setPurchasedItems } from "../../features/Cart/PurchasedSlice";
-import { apiUrl } from "../../lib/api";
+import { getPurchasedItemsByUser } from "../../lib/demoUserStore";
 
 // Function to fetch purchased items from the API
 const fetchPurchasedCourses = async (userId: string): Promise<Course[]> => {
-  const response = await axios.get(apiUrl(`/Users/${userId}`));
-  return response.data.purchasedItems || [];
+  return getPurchasedItemsByUser(userId);
 };
 
 // Custom hook to fetch purchased courses
